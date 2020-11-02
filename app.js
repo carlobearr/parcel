@@ -1,8 +1,13 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
+const connectToDatabase = require('./db')
+const Note = require('./Note')
 
-app.get('/', (req,res) => {
-    res.send("DEVELOPMENT BRANCH");
+app.get('/', async(req,res) => {
+    await connectToDatabase()
+    const notes = await Note.find()
+    res.send({ v: 2, notes })
 })
 
 const port = process.env.port || 3000;
