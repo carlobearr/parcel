@@ -18,9 +18,7 @@
   },
   "homepage": "https://github.com/carlobearr/parcel#readme",
   "dependencies": {
-    "dotenv": "^7.0.0",
     "express": "^4.17.1",
-    "mongodb": "^3.6.2",
-    "sharp": "^0.25.2"
+    "mongodb": "^3.6.2"
   }
 }
