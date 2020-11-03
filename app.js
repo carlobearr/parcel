@@ -6,7 +6,7 @@ const Note = require('./Note')
 app.get('/', async(req,res) => {
     await connectToDatabase()
     const notes = await Note.find()
-    res.send({ v: 2, notes })
+    res.send({ v: 3, notes })
 })
 
 const port = process.env.port || 3000;
