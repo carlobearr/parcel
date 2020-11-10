@@ -1,15 +1,14 @@
 const express = require('express');
+const cors = require('cors');
+const adminRoute = require('./routes/admin.js');
+
 const app = express();
-const connectToDatabase = require('./db')
-const Note = require('./Note')
+app.use(cors());
 
-app.get('/', async(req,res) => {
-    await connectToDatabase()
-    const notes = await Note.find()
-    res.send({ v: 3, notes })
-})
 
-const port = process.env.port || 3000;
+app.use('/', adminRoute);
+
+const port = process.env.port || 8080;
 app.listen(port, () => {
     console.log("starting at localhost:3000");
 })
