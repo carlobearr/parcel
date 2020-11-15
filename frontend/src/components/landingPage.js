@@ -1,8 +1,9 @@
+import "antd/dist/antd.css";
 import React from 'react';
 
 function Landing() {
     return ( 
-        <h1> Home </h1>
+        <div><h1> Home </h1></div>
     );
 };
 
