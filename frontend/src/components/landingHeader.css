@@ -1,4 +1,22 @@
 .header {
   padding:0 !important;
 };
-
+.menuHeader {
+  float:right;
+  background-color: #00C8FF;
+  border-bottom-color: #00C8FF;
+  color: #FFFFFF;
+}
+.rightAlign {
+  float: right;
+}
+.leftAlign {
+  float:left;
+}
+.menuFont {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+.colorBlue {
+  color: #00C8FF !important;
+}
