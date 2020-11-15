@@ -1,29 +1,27 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { InputNumber } from 'antd';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Layout } from 'antd';
+import Landing from './components/landingPage';
+import Dashboard from './components/dashboard';
+import Tracking from './components/trackingPage';
+
+const { Header, Footer, Content } = Layout;
 
 const App = () => {
-    useEffect(() => {
-        const getAPI = async () => {
-            const response = await fetch('http://localhost:8080/');
-            const data = await response.json();
-
-            try {
-                console.log(data);
-                setNote(data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getAPI();
-    }, []);
-
-    const [note, setNote] = useState([]);
-
-    return (
-      <Fragment>
-        {JSON.stringify(note)}
-        <InputNumber min={1} max={10} defaultValue={3} />
-      </Fragment>
+    return ( 
+        <Layout>
+            <Header> Header </Header> 
+            <Content>  
+                <Router>
+                    <Switch>
+                        <Route path="/" exact component={Landing}/>
+                        <Route path="/dashboard" component={Dashboard}/>
+                        <Route path="/tracking" component={Tracking}/>
+                    </Switch>
+                </Router>
+            </Content> 
+            <Footer> Footer </Footer> 
+        </Layout>
     );
 };
 
