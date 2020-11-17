@@ -1,0 +1,83 @@
+/*Timeline head and tail fill*/
+
+.ant-timeline {
+    color: #00C8FF;
+}
+
+
+/*Blue head and tail*/
+
+.ant-timeline-item-head-blue {
+    background-color: #00C8FF;
+    border-color: #00C8FF;
+}
+
+.ant-timeline-item-head-blue+div {
+    border-left: 3px solid #00C8FF;
+}
+
+
+/*gray head*/
+
+.ant-timeline-item-head-gray {
+    background-color: #E3EFF9;
+    border-color: #E1E6EC;
+}
+
+.ant-timeline-item-head-gray::after {
+    border-left: 3px solid #E1E6EC;
+}
+
+.ant-timeline-item-content,
+.ant-timeline-item-label {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+
+/*Tracking date style*/
+
+.tracking-date {
+    font-weight: bold;
+    margin: 0;
+}
+
+.tracking-date+p {
+    font-size: 14px;
+}
+
+.tracking-header {
+    /*Display options*/
+    display: inline-block;
+    margin-bottom: 50px;
+    padding-right: 20px;
+    width: 25vw;
+    /*Text options*/
+    color: #00C8FF;
+    font-size: 72px;
+    text-align: right;
+}
+
+.tracking-number {
+    /*Display Options*/
+    display: inline-block;
+    background-color: #E3EFF9;
+    margin-left: 20px;
+    margin-bottom: 50px;
+    padding: 5px;
+    min-width: 20vw;
+    border-radius: 50px 50px 50px 50px;
+    /*Text Options*/
+    color: #00C8FF;
+    font-size: 18px;
+    text-align: center;
+}
+
+.tracking-side {
+    /*Display options*/
+    display: block;
+    background-color: #00C8FF;
+    border-radius: 400px 0 0 400px;
+}
