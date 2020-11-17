@@ -7,9 +7,11 @@ function Tracking() {
     return ( 
         <div> 
             <Row> 
-                <Col span={12}>                           
-                    <div className="tracking-header"> Tracking </div>
-                    <div className="tracking-number"> Tracking Number </div>
+                <Col span={12}>
+                    <div className="tracking-header">                        
+                        <div className="tracking-title"> Tracking </div>
+                        <div className="tracking-number"> Tracking Number </div>
+                    </div>   
                     <Timeline mode="right">
                         <Timeline.Item label="Status is here" color="blue">
                             <p className="tracking-date">MM YY DD</p>
