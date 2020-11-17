@@ -12,20 +12,12 @@
     border-color: #00C8FF;
 }
 
-.ant-timeline-item-head-blue+div {
-    border-left: 3px solid #00C8FF;
-}
-
 
 /*gray head*/
 
 .ant-timeline-item-head-gray {
     background-color: #E3EFF9;
     border-color: #E1E6EC;
-}
-
-.ant-timeline-item-head-gray::after {
-    border-left: 3px solid #E1E6EC;
 }
 
 .ant-timeline-item-content,
