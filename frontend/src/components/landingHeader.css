@@ -1,5 +1,9 @@
 .header {
+  position: sticky;
+  z-index: 5;
+  top: 0;
   padding:0 !important;
+  background-color: #FFFFFF;
 };
 .menuHeader {
   float:right;
