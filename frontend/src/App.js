@@ -10,7 +10,7 @@ const App = () => {
     return ( 
         <Layout>
             <LandingHeader></LandingHeader>
-            <Content style={{ background: "#FFFFFF", height: "calc(100vh - 55px)" }}>  
+            <Content style={{ background: "#FFFFFF", height: "100%" }}>  
                 <Routes></Routes>
             </Content>
             <LandingFooter></LandingFooter>
