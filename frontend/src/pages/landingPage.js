@@ -3,7 +3,7 @@ import "./landingPage.css";
 import React from 'react';
 import { Row, Col, Typography, Button, Avatar } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
-
+import GoogleSignInButton from '../components/googleSignInButton';
 const { Text } = Typography;
 
 function Landing() {
@@ -23,7 +23,7 @@ function Landing() {
                             </Text>
                         </div>
                         <div className="buttonPadding">
-                        <Button type="primary" shape="round" className="buttonProperty" style={{ background: "#00C8FF", borderColor: "#00C8FF" }}>SIGN IN WITH GOOGLE</Button>
+                            <GoogleSignInButton></GoogleSignInButton>
                         </div>
                     </Col>
                     <Col className="maxHeight"span={14}>

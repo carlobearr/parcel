@@ -25,9 +25,6 @@ function LandingHeader() {
                 <Col className="rightAlign">
                     <Menu mode="horizontal" className="menuHeader">
                         <Menu.Item className="menuFont">
-                            <Button type="primary" shape="round" className="buttonProperty" style={{ background: "#00C8FF", borderColor: "#00C8FF" }}>SIGN IN WITH GOOGLE</Button>
-                        </Menu.Item>
-                        <Menu.Item className="menuFont">
                             <Button type="primary" shape="round" className="buttonProperty" style={{ background: "#00C8FF", borderColor: "#00C8FF" }}>TRACK YOUR PACKAGE</Button>
                         </Menu.Item>
                     </Menu>

@@ -1,96 +1,115 @@
 .wrapperWholePage {
     position: relative;
 }
+
 .wrapper {
     position: relative;
     height: 100vh;
     background-color: white;
 }
+
 .wrapper4 {
     position: relative;
     height: 60vh;
     background-color: white;
 }
+
 .maxHeight {
     height: 88vh;
 }
+
 .headerPadding1 {
     padding-top: 25%;
     padding-left: 10%;
 }
+
 .promotionalHeader {
     text-align: left;
     font-family: 'Poppins', sans-serif;
     font-size: 45px;
     font-weight: bold;
 }
+
 .subheaderPadding1 {
     padding-top: 1%;
     padding-left: 10%;
     padding-right: 25%;
 }
+
 .promotionalSubheader {
     text-align: left;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: 900;
 }
+
 .buttonPadding {
     padding-top: 5%;
     padding-left: 10%;
     font-family: 'Roboto', sans-serif;
 }
+
 .picturePadding {
     margin-left: 10%;
     margin-top: 35%;
 }
+
 .caretDownBlue {
     color: #00C8FF;
     font-size: 20px;
     margin-left: 49%;
 }
+
 .caretDownWhite {
     color: #FFFFFF;
     font-size: 20px;
     margin-left: 49%;
 }
+
 .headerPadding2 {
     text-align: center;
     padding-top: 5%;
 }
+
 .subheaderPadding2 {
     text-align: center;
     padding-left: 22%;
     padding-right: 22%;
 }
+
 .box1 {
     height: 55vh;
     width: 27vw;
     background-color: #FFFFFF;
     border-radius: 10px;
 }
+
 .boxPadding {
     padding-top: 4%;
     padding-left: 3%;
     margin-bottom: 2%;
 }
+
 .blueIcon {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    background-color:#00C8FF;
-  }
+    background-color: #00C8FF;
+}
+
 .whiteIcon {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    background-color:#FFFFFF;
+    background-color: #FFFFFF;
 }
+
 .avatarMargin {
     padding-top: 15%;
 }
+
 .boxSubheader1 {
     display: block;
     margin-left: auto;
@@ -103,12 +122,14 @@
     text-align: center;
     color: #00C8FF;
 }
+
 .box2 {
     height: 55vh;
     width: 18vw;
     background-color: #00C8FF;
     border-radius: 10px;
 }
+
 .boxSubheader2 {
     display: block;
     margin-left: auto;
@@ -121,6 +142,7 @@
     text-align: center;
     color: #FFFFFF;
 }
+
 .page4 {
     display: block;
     margin-left: auto;

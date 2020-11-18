@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import LandingHeader from './components/landingHeader';
 import LandingFooter from './components/landingFooter';
 import Routes from './Routes';
+import './App.css';
 
 const { Content } = Layout;
 

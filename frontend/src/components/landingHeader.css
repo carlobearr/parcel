@@ -1,26 +1,33 @@
 .header {
-  position: sticky;
-  z-index: 5;
-  top: 0;
-  padding:0 !important;
-  background-color: #FFFFFF;
-};
+    position: sticky;
+    z-index: 5;
+    top: 0;
+    padding: 0 !important;
+    background-color: #FFFFFF;
+    height: 66px;
+}
+
+;
 .menuHeader {
-  float:right;
-  background-color: #00C8FF;
-  border-bottom-color: #00C8FF;
-  color: #FFFFFF;
+    float: right;
+    background-color: #00C8FF;
+    border-bottom-color: #00C8FF;
+    color: #FFFFFF;
 }
+
 .rightAlign {
-  float: right;
+    float: right;
 }
+
 .leftAlign {
-  float:left;
+    float: left;
 }
+
 .menuFont {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
+
 .colorBlue {
-  color: #00C8FF !important;
+    color: #00C8FF !important;
 }
