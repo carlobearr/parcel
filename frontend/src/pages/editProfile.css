@@ -1,0 +1,32 @@
+.editProfilePage {
+    background-color: #00C8FF;
+    padding: 50px;
+}
+
+.editProfileMain {
+    display: block;
+    background-color: #ffffff;
+    width: 700px;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Roboto';
+}
+
+.editProfileMain h1 {
+    font-weight: bolder;
+    font-size: 48px;
+    color: #00C8FF;
+}
+
+.ant-input {
+    border-radius: 5px;
+    background-color: #E3EFF9;
+    border: none;
+}
+
+.ant-form-item-label label {
+    color: #00C8FF;
+    font-size: 18px;
+    font-weight: bold;
+}
