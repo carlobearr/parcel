@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "./landingFooter.css";
 import React from 'react';
-import { Layout, Row, Col, Avatar, Menu} from 'antd';
+import { Layout, Row, Col, Avatar, Menu, Image} from 'antd';
 import { Typography } from 'antd';
 
 const { Title, Paragraph} = Typography;
@@ -31,7 +31,9 @@ function LandingFooter() {
                 </Col>
             </Row>         
             <Row>
-                <Col span={3}><center><Title level={2} style={{ color: "#FFFFFF"}}>logo here</Title></center></Col>
+                <Col span={3}>
+                    <Image preview={false} className="footerLogo" src={process.env.PUBLIC_URL+ '/PE-Logo-Footer.png'}/>
+                </Col>
             </Row>
             <Row>
                 <Col span={3} className="menuFont"><center><Paragraph  style={{ color: "#FFFFFF"}}>insert subheader text here</Paragraph></center></Col>

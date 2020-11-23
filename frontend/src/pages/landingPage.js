@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "./landingPage.css";
 import React from 'react';
-import { Row, Col, Typography, Button, Avatar } from 'antd';
+import { Row, Col, Typography, Button, Avatar, Image } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import GoogleSignInButton from '../components/googleSignInButton';
 const { Text } = Typography;
@@ -28,12 +28,10 @@ function Landing() {
                     </Col>
                     <Col className="maxHeight"span={14}>
                         <div className="picturePadding">
-                            <center>
-                                Picture here
-                            </center>
+                        <Image preview={false} className="landingPicture" src={process.env.PUBLIC_URL+ '/PE-Landing.png'}/>
                         </div>
                     </Col>
-                    <Col span={24}>
+                    <Col className="bottomCenter1" span={24}>
                         <div className="caretDownBlue">
                             <CaretDownOutlined/>
                         </div>
@@ -86,9 +84,11 @@ function Landing() {
                     </Col>
                 </Row>
                 <Row>
-                    <div className="caretDownWhite">
-                        <CaretDownOutlined/>
-                    </div>
+                    <Col className="bottomCenter2" span={24}>
+                        <div className="caretDownWhite">
+                            <CaretDownOutlined/>
+                        </div>
+                    </Col>
                 </Row>
             </div>
             <div className="wrapper">
@@ -147,9 +147,11 @@ function Landing() {
                     </Col>
                 </Row>
                 <Row>
-                    <div className="caretDownBlue">
-                        <CaretDownOutlined/>
-                    </div>
+                    <Col className="bottomCenter2" span={24}>
+                        <div className="caretDownBlue">
+                            <CaretDownOutlined/>
+                        </div>
+                    </Col>
                 </Row>
             </div>
             <div className="wrapper4">
