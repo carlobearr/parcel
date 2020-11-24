@@ -8,3 +8,9 @@ phases:
 
       # Upgrade AWS CLI to the latest version
       - pip install --upgrade awscli
+  build:
+    commands:
+      - echo "Entered build phase"
+      - cd frontend && npm install
+      - cd ..
+      - npm run servers
