@@ -12,5 +12,4 @@ phases:
     commands:
       - echo "Entered build phase"
       - cd frontend && npm install
-      - cd ..
       - npm run servers
