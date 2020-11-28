@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node app.js --ignore client",
+    "dev": "nodemon --exec babel-node server.js --ignore client",
+    "build": "babel app.js --out-file server.compiled.js",
     "servers": "concurrently \"npm run dev\" \"cd frontend && npm run start\""
   },
   "repository": {
@@ -27,7 +28,13 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "mongodb": "^3.6.2",
-    "mongoose": "^5.9.6",
+    "mongoose": "^5.9.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
     "nodemon": "^2.0.6"
   }
 }

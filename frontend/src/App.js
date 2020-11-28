@@ -1,22 +1,31 @@
-import React from 'react';
-import { Layout } from 'antd';
-import LandingHeader from './components/landingHeader';
-import LandingFooter from './components/landingFooter';
-import Routes from './Routes';
+import React, { Component } from 'react';
 import './App.css';
 
-const { Content } = Layout;
-
-const App = () => {
-    return ( 
-        <Layout>
-            <LandingHeader></LandingHeader>
-            <Content style={{ background: "#FFFFFF", height: "100%" }}>  
-                <Routes></Routes>
-            </Content>
-            <LandingFooter></LandingFooter>
-        </Layout>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      flower: {}
+    }
+    this.getFlower();
+  }
+  getFlower() {
+    fetch("/flower")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          flower: data
+        });
+      });
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1>{this.state.flower.name}</h1>
+        <p>{this.state.flower.colour}</p>
+      </div>
     );
-};
+  }
+}
 
 export default App;

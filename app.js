@@ -1,14 +1,23 @@
+// server.js
+//
 const express = require('express');
-const cors = require('cors');
-const adminRoute = require('./routes/admin.js');
-
+const path = require('path');
 const app = express();
-app.use(cors());
 
+const PORT = process.env.HTTP_PORT || 4001;
+app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
-app.use('/', adminRoute);
+app.get('/', (req, res) => {
+  res.send('just gonna send it');
+});
 
-const port = process.env.port || 8080;
-app.listen(port, () => {
-    console.log("starting at localhost:30000");
-})
+app.get('/flower', (req, res) => {
+  res.json({
+    name: 'Dandelion',
+    colour: 'Blue-ish'
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening at port ${PORT}.`);
+});
