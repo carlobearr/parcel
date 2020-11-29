@@ -1,10 +1,10 @@
 import "antd/dist/antd.css";
 import "./landingFooter.css";
 import React from 'react';
-import { Layout, Row, Col, Avatar, Menu, Image} from 'antd';
+import { Layout, Row, Col, Avatar, Menu, Image, Button} from 'antd';
 import { Typography } from 'antd';
-
-const { Title, Paragraph} = Typography;
+import { getSessionUser, setLogout } from '../api/sessionHandler';
+const { Paragraph } = Typography;
 
 const { Footer} = Layout;
 
