@@ -21,6 +21,10 @@ app.use(cors({
     origin: "http://localhost:3000"
 }));
 
+//db connection
+const connection = require('./db');
+connection();
+
 //session settings
 app.use(session({
     name: process.env.SESSION_NAME,

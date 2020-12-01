@@ -3,7 +3,6 @@ const { verify } = require('../googleTokenValidation');
 const connection = require('../db');
 
 exports.loginUser = async(req, res) => {
-    await connection();
     const verifiedUser = await verify(req.body.token).catch(console.err);
 
     if (verifiedUser.gId) {
@@ -26,7 +25,6 @@ exports.loginUser = async(req, res) => {
 };
 
 exports.logoutUser = async({ session }, res) => {
-    await connection();
     try {
         const user = session.user;
         if (user) {
@@ -43,7 +41,6 @@ exports.logoutUser = async({ session }, res) => {
 }
 
 exports.getSessionUser = async(req, res) => {
-    await connection();
     if (req.session.user) {
         res.status(200).json(req.session.user);
     } else {
