@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
-const cors = require('cors');
+//const cors = require('cors');
 
 //routes
 const adminRoute = require('./routes/adminRoute');
@@ -16,12 +16,12 @@ const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors({
-    credentials: true,
-    origin: "http://localhost:3000"
-}));
+// app.use(cors({
+//     credentials: true,
+//     origin: "http://localhost:3000"
+// }));
 
-//db connection
+//db connection for app (place before sessions for cookie persistence)
 const connection = require('./db');
 connection();
 

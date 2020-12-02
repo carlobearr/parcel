@@ -1,5 +1,5 @@
 export const setSignIn = async(googleUser) => {
-    const response = await fetch('http://localhost:8080/user/login', {
+    const response = await fetch('/user/login', {
         headers: {
             'Content-Type': 'application/json'
         },
@@ -12,7 +12,7 @@ export const setSignIn = async(googleUser) => {
 };
 
 export const getSessionUser = async() => {
-    const response = await fetch('http://localhost:8080/user/getSession', {
+    const response = await fetch('/user/getSession', {
         credentials: "include"
     });
     const responseContent = await response.json();
@@ -26,7 +26,7 @@ export const getSessionUser = async() => {
 
 export const setLogout = async() => {
     console.log("log");
-    const response = await fetch('http://localhost:8080/user/logout', {
+    const response = await fetch('/user/logout', {
         method: "DELETE",
         credentials: 'include'
     });
