@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js --ignore client",
+    "start": "concurrently \"npm run dev\" \"cd frontend && npm run start\"",
     "dev": "nodemon --exec babel-node server.js --ignore client",
     "build": "babel app.js --out-file server.compiled.js",
     "servers": "concurrently \"npm run dev\" \"cd frontend && npm run start\""
@@ -38,8 +38,5 @@
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "nodemon": "^2.0.6"
-  },
-  "devDependencies": {
-    "dotenv": "^8.2.0"
   }
 }
