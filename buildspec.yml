@@ -13,3 +13,5 @@ phases:
       - echo "Entered build phase"
       - npm install
       - cd frontend && npm install
+      - cd.. && npm run build
+      - cd frontend && npm run build
