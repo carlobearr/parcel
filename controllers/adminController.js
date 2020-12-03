@@ -7,12 +7,8 @@ exports.getIndex = async(req, res) => {
 
     try {
         // res.send({ v: 2, notes });
-        res.json({ v: 2, notes });
+        res.send("node home");
     } catch (error) {
         console.log(error);
     }
 };
-
-exports.getDashboard = async(req, res) => {
-
-}

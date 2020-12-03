@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "./landingPage.css";
 import React from 'react';
-import { Row, Col, Typography, Button, Avatar, Image } from 'antd';
+import { Row, Col, Typography, Avatar, Image } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import GoogleSignInButton from '../components/googleSignInButton';
 const { Text } = Typography;
@@ -38,7 +38,7 @@ function Landing() {
                     </Col>
                 </Row>
             </div>
-            <div className="wrapper" style={{background: "#00C8FF"}}>
+            <div id="menu1" className="wrapper" style={{background: "#00C8FF"}}>
                 <Row >
                     <Col span={24} className="headerPadding2">
                         <Text className="promotionalHeader" style={{color: "#FFFFFF"}}>
@@ -91,7 +91,7 @@ function Landing() {
                     </Col>
                 </Row>
             </div>
-            <div className="wrapper">
+            <div id="menu2" className="wrapper">
                 <Row >
                     <Col span={24} className="headerPadding2">
                         <Text className="promotionalHeader" style={{color: "#00C8FF"}}>
@@ -154,7 +154,7 @@ function Landing() {
                     </Col>
                 </Row>
             </div>
-            <div className="wrapper4">
+            <div id="menu3" className="wrapper">
                 <Row>
                     <Col span={24} className="page4">
                         SOMETHING

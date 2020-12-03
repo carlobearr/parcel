@@ -1,21 +1,23 @@
-import { React, useEffect } from 'react';
+import { React } from 'react';
+import { GoogleLogin } from 'react-google-login';
+import { setSignIn } from '../api/sessionHandler';
 import './googleSignInButton.css';
 
+
 function GoogleSignInButton() {
-    useEffect(() => {
-        //attach google script import
-        const script = document.createElement('script');
-
-        script.src = 'https://apis.google.com/js/platform.js';
-        script.async = true;
-        script.defer = true;
-
-        document.body.appendChild(script);
-    });
-
-    return( 
-        <div className="g-signin2" data-onsuccess="onSignIn" data-width="300"></div>
-    )
+    const clientID = "55520656354-nv3m9jg3sdvucbsopa4o5ebuttimidrf.apps.googleusercontent.com";
+    
+    return (
+        <div>
+            <GoogleLogin
+                clientId={ clientID }
+                buttonText='Google Sign In'
+                icon={false}
+                onSuccess={setSignIn}
+            />
+            
+        </div>
+    )   
 }
 
 export default GoogleSignInButton;
