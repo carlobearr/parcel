@@ -9,7 +9,7 @@ const { Text } = Typography;
 function Landing() {
     return ( 
         <div className="wrapperWholePage">
-            <div className="wrapper">
+            <div id="top" className="wrapper">
                 <Row>
                     <Col className="maxHeight" span={10}>
                         <div className="headerPadding1">
