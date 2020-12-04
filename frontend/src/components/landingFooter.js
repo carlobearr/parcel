@@ -3,8 +3,7 @@ import "./landingFooter.css";
 import React from 'react';
 import { Layout, Row, Col, Avatar, Menu, Image} from 'antd';
 import { Typography } from 'antd';
-
-const { Title, Paragraph} = Typography;
+const { Paragraph } = Typography;
 
 const { Footer} = Layout;
 

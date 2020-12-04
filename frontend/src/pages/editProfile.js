@@ -31,16 +31,6 @@ function Tracking() {
                         </Col>
                     </Row>
                     <Row gutter={4}>
-                        <Col span={12}>
-                            <Form.Item label="New Password" name="password"><Input/></Form.Item>
-                        </Col>
-                    </Row>
-                    <Row gutter={4}>
-                        <Col span={12}>
-                            <Form.Item label="Confirm Password" name="confirmPassword"><Input/></Form.Item>
-                        </Col>
-                    </Row>
-                    <Row gutter={4}>
                         <Col span={24}>
                             <Button>Submit</Button>
                         </Col>
