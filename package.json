@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "concurrently \"npm run dev\" \"cd frontend && npm run start\"",
+    "start": "concurrently \"node server.compiled.js\" \"cd frontend && npm run start\"",
     "dev": "node server.compiled.js",
     "build": "babel app.js --out-file server.compiled.js",
     "servers": "concurrently \"npm run dev\" \"cd frontend && npm run start\""
