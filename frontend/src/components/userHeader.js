@@ -19,7 +19,7 @@ function UserHeader() {
                 </Link>
             </Menu.Item>
             <Menu.Item className="menuFont">
-                <Link to="#">
+                <Link to="/address">
                     My Addresses
                 </Link>
             </Menu.Item>

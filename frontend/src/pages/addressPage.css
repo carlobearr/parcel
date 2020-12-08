@@ -1,0 +1,113 @@
+.wrapperWholePage {
+    position: relative;
+}
+.container {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.myAddresses {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    color: #00C8FF;
+}
+.addAddressButton {
+    color: #00C8FF;
+    margin-top: 40px;
+}
+.title {
+    height: 70px;
+}
+.addressContainer {
+    position: relative;
+    margin-top: 2%;
+    width: 100%;
+    box-shadow: 0px 0px 8px -3px rgba(138,131,138,1);
+}
+.right {
+    float: right;
+}
+.editAddress {
+    font-size: 18px;
+    color: #00C8FF;
+    font-weight: 650;
+}
+.ant-btn:hover {
+    color: #00C8FF !important;
+    border-bottom-color: #00C8FF;
+    background-color: transparent;
+    border-width: 2px;
+}
+.ant-btn:focus {
+    color: #00C8FF !important;
+    background-color: transparent;
+    border-bottom-color: #00C8FF;
+    border-width: 2px;
+}
+.details {
+    margin: 20px;
+    margin-top: 35px;
+    color: #00C8FF;
+    font-size: 22px;
+}
+.addressName {
+    font-family: 'Poppins', sans-serif;
+}
+
+.ant-modal-title {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #00C8FF;
+    font-weight: 600;
+    font-size: 20px;
+}
+.ant-modal-header {
+    border-bottom-color: #00C8FF;
+    border-width: 2px;
+}
+.ant-modal-close-icon {
+    color:  #00C8FF;
+}
+.formDetails {
+    color:#00C8FF;
+    font-weight: 600;
+    font-size: 18px;
+}
+.ant-input {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.ant-modal-footer {
+    text-align: center;
+    padding: 3%;
+}
+.addButton {
+    background-color: #00C8FF !important;
+}
+.ant-btn-primary:hover {
+    background-color: #00C8FF !important;
+    color: white !important;
+}
+.ant-btn-primary:focus {
+    background-color: #00C8FF !important;
+    color: white !important;
+}
+.ant-btn-round {
+    border-color: #00C8FF;
+}
+.fill {
+    height: 30vh;
+    width: 100%;
+    background-color: #00C8FF;
+}
+.padding {
+    padding:24px;
+}
+.ant-modal-body{
+    padding: 0px;
+}
+.ant-modal-content {
+    border-radius: 10px;
+}
