@@ -15,7 +15,7 @@ exports.loginUser = async(req, res) => {
         //if user exist
         if (dbUser) {
             req.session.user = dbUser;
-            res.json({ url: "/dashboard" });
+            res.json({ url: "/" });
         } else { //save new user
             const newUser = new userModel(user);
             await newUser.save();
