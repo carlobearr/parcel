@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var session = require('express-session');
 
+var path = require('path');
+
 var mongoose = require('mongoose');
 
 var MongoStore = require('connect-mongo')(session); //const cors = require('cors');
@@ -23,7 +25,8 @@ var port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
-})); // app.use(cors({
+}));
+app.use(express["static"](path.join(__dirname, 'frontend', 'build'))); // app.use(cors({
 //     credentials: true,
 //     origin: "http://localhost:3000"
 // }));
