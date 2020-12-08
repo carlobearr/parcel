@@ -29,8 +29,8 @@ connection();
 
 //session settings
 app.use(session({
-    name: process.env.SESSION_NAME,
-    secret: process.env.SESSION_SECRET,
+    name: process.env.SESSION_NAME || "pelexp",
+    secret: process.env.SESSION_SECRET || "simpforhoward",
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     resave: false,
     saveUninitialized: true,
