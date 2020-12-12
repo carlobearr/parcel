@@ -27,7 +27,7 @@ function AddressPage() {
       };
     
       const handleOk1 = () => {
-        document.getElementById('formSubmit').click();
+        document.getElementById('addFormSubmit').click();
         setIsModalVisible1(false);
       };
     
@@ -36,6 +36,12 @@ function AddressPage() {
       };
     
       const handleOk2 = () => {
+        document.getElementById('editFormSubmit').click();
+        setIsModalVisible2(false);
+      };
+
+      const handleOk3 = () => {
+        document.getElementById('deleteFormSubmit').click();
         setIsModalVisible2(false);
       };
     
@@ -74,7 +80,7 @@ function AddressPage() {
                 onOk={handleOk1}
                 onCancel={handleCancel1}
                 footer={[
-                    <Button id="addAddressButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk1}>
+                    <Button id="addAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk1}>
                       ADD ADDRESS
                     </Button>,
                   ]}
@@ -84,7 +90,7 @@ function AddressPage() {
                         <Form.Item label="Address Name" name="addressName"><Input/></Form.Item>
                         <Form.Item label="Complete Address" name="completeAddress"><Input/></Form.Item>
                         <Form.Item label="Other Address Details" name="details"><Input/></Form.Item>
-                        <Form.Item hidden><Button id="formSubmit" htmlType="submit">Submit</Button></Form.Item>    
+                        <Form.Item hidden><Button id="addFormSubmit" htmlType="submit">Submit</Button></Form.Item>  
                     </Form>
                 </div>
                 <div className="fill">
@@ -98,23 +104,21 @@ function AddressPage() {
                 onOk={handleOk2}
                 onCancel={handleCancel2}
                 footer={[
-                    <Button id="addAddressButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk2}>
+                    <Button id="deleteAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk3}>
                       DELETE ADDRESS
                     </Button>,
-                    <Button id="addAddressButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk2}>
+                    <Button id="editAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk2}>
                     EDIT ADDRESS
                     </Button>
                   ]}
             >
                 <div className="padding">
-                    <form>
-                        <label className="formDetails" htmlFor="addressName">Address Name</label>
-                        <Input id="editAddressName"/>
-                        <label className="formDetails" htmlFor="completeAddress">Complete Address</label>
-                        <Input id="editCompleteAddress"/>
-                        <label className="formDetails" htmlFor="addressDetails">Other Address Details</label>
-                        <Input id="editAddressDetails"/>
-                    </form>
+                    <Form layout="vertical" >
+                        <Form.Item label="Address Name" name="addressName"><Input/></Form.Item>
+                        <Form.Item label="Complete Address" name="completeAddress"><Input/></Form.Item>
+                        <Form.Item label="Other Address Details" name="details"><Input/></Form.Item>
+                        <Form.Item hidden><Button id="editformSubmit" htmlType="submit">Submit</Button></Form.Item>
+                    </Form>
                 </div>
                 <div className="fill">
 
