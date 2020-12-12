@@ -6,7 +6,6 @@ exports.loginUser = async(req, res) => {
     const verifiedUser = await verify(req.body.token).catch(console.err);
 
     if (verifiedUser.gId) {
-        await connection(); //db connect
         const user = verifiedUser;
 
         //find if existing

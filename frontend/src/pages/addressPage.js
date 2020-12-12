@@ -1,12 +1,22 @@
 import "antd/dist/antd.css";
 import "./addressPage.css";
-import React, {useState} from 'react';
-import { Row, Col, Button, Modal, Input } from 'antd';
+import React, {useState, useEffect} from 'react';
+import { Row, Col, Button, Modal, Input, Form } from 'antd';
+import AddressContainer from '../components/addressContainer';
 import { PlusOutlined } from '@ant-design/icons';
+import { newAddress, getAddressList } from "../api/addressHandler";
+
 function AddressPage() {
 
     const [isModalVisible1, setIsModalVisible1] = useState(false);
     const [isModalVisible2, setIsModalVisible2] = useState(false);
+    const [addressList, setAddressList] = useState(null);
+    useEffect(() => {
+        async function fetchAddress() {
+            setAddressList(await getAddressList());
+        }
+        fetchAddress();
+    }, []);
 
       const showModal1 = () => {
         setIsModalVisible1(true);
@@ -17,6 +27,7 @@ function AddressPage() {
       };
     
       const handleOk1 = () => {
+        document.getElementById('formSubmit').click();
         setIsModalVisible1(false);
       };
     
@@ -45,23 +56,14 @@ function AddressPage() {
                 </Row>
                 <div>
                     <Row>
-                        <div className="addressContainer">
-                            <Row className="right">
-                                <Button id="editAddressButton" type="text" className="editAddress" onClick={showModal2}>
-                                    EDIT ADDRESS
-                                </Button>
-                            </Row>
-                            <div className="details">
-                                <Row className="addressName">
-                                    Address Name
-                                </Row>
-                                <Col span={15}>
-                                    <Row>
-                                    Street type, Street name, House number Neighborhood, Municipality Postal code, City, State, Country
-                                    </Row>
-                                </Col>
-                            </div>
-                        </div>
+                        { addressList ?
+                            
+                            addressList.map((addressDetails, i) => {
+                                return <AddressContainer key={i} {...addressDetails} {...showModal2}></AddressContainer>
+                            })
+                            :
+                            <p>Empty</p>
+                        }
                     </Row>
                 </div>
             </div>
@@ -78,14 +80,12 @@ function AddressPage() {
                   ]}
             >
                 <div className="padding">
-                    <form>
-                        <label className="formDetails" htmlFor="addressName">Address Name</label>
-                        <Input id="addAddressName"/>
-                        <label className="formDetails" htmlFor="completeAddress">Complete Address</label>
-                        <Input id="addCompleteAddress"/>
-                        <label className="formDetails" htmlFor="addressDetails">Other Address Details</label>
-                        <Input id="addAddressDetails"/>
-                    </form>
+                    <Form layout="vertical" onFinish={newAddress}>
+                        <Form.Item label="Address Name" name="addressName"><Input/></Form.Item>
+                        <Form.Item label="Complete Address" name="completeAddress"><Input/></Form.Item>
+                        <Form.Item label="Other Address Details" name="details"><Input/></Form.Item>
+                        <Form.Item hidden><Button id="formSubmit" htmlType="submit">Submit</Button></Form.Item>    
+                    </Form>
                 </div>
                 <div className="fill">
 
