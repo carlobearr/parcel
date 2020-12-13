@@ -5,7 +5,7 @@ function AddressContainer(addressDetails ,showModal2) {
     return (
         <div className="addressContainer">
             <Row className="right">
-                <Button id="editAddressButton" type="text" className="editAddress" onClick={showModal2}>
+                <Button type="text" className="editAddress" onClick={showModal2}>
                     EDIT ADDRESS
                 </Button>
             </Row>

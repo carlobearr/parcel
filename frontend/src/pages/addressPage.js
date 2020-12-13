@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "./addressPage.css";
 import React, {useState, useEffect} from 'react';
-import { Row, Col, Button, Modal, Input, Form } from 'antd';
+import { Row, Col, Button, Modal, Input, Form, Spin } from 'antd';
 import AddressContainer from '../components/addressContainer';
 import { PlusOutlined } from '@ant-design/icons';
 import { newAddress, getAddressList } from "../api/addressHandler";
@@ -10,13 +10,16 @@ function AddressPage() {
 
     const [isModalVisible1, setIsModalVisible1] = useState(false);
     const [isModalVisible2, setIsModalVisible2] = useState(false);
-    const [addressList, setAddressList] = useState(null);
+    const [addressList, setAddressList] = useState(false);
+    const [updateAddress, setupdateAddress] = useState(false);
+
     useEffect(() => {
         async function fetchAddress() {
             setAddressList(await getAddressList());
         }
+        setupdateAddress(false);
         fetchAddress();
-    }, []);
+    }, [updateAddress]);
 
       const showModal1 = () => {
         setIsModalVisible1(true);
@@ -29,6 +32,8 @@ function AddressPage() {
       const handleOk1 = () => {
         document.getElementById('addFormSubmit').click();
         setIsModalVisible1(false);
+        setupdateAddress(true);
+        setAddressList(false);
       };
     
       const handleCancel1 = () => {
@@ -62,13 +67,18 @@ function AddressPage() {
                 </Row>
                 <div>
                     <Row>
-                        { addressList ?
-                            
-                            addressList.map((addressDetails, i) => {
-                                return <AddressContainer key={i} {...addressDetails} {...showModal2}></AddressContainer>
-                            })
+                        { addressList !== false ?
+                              addressList !== null ?  
+                                addressList.map((addressDetails, i) => {
+                                    return <AddressContainer key={i} {...addressDetails} {...showModal2}></AddressContainer>
+                                })
+                                :
+                                <div className="spin details">
+                                  <p className="addressName">No addresses saved.</p>
+                                  <p>Click the '+' icon to create a new one!</p>
+                                </div>
                             :
-                            <p>Empty</p>
+                            <Spin className="spin" size="large"/>
                         }
                     </Row>
                 </div>
