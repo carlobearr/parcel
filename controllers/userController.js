@@ -41,8 +41,8 @@ exports.logoutUser = async({ session }, res) => {
 
 exports.getSessionUser = async(req, res) => {
     if (req.session.user) {
-        res.status(200).json(req.session.user);
+        res.json(req.session.user);
     } else {
-        res.status(200).json(null);
+        res.json(null);
     }
 }

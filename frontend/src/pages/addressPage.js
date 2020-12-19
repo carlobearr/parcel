@@ -3,15 +3,14 @@ import "./addressPage.css";
 import React, {useState, useEffect} from 'react';
 import { Row, Col, Button, Modal, Input, Form, Spin } from 'antd';
 import AddressContainer from '../components/addressContainer';
-import { PlusOutlined } from '@ant-design/icons';
-import { newAddress, getAddressList } from "../api/addressHandler";
+import { getAddressList, getAddress, editAddress, deleteAddress } from "../api/addressHandler";
+import NewAddressModal from '../components/newAddressModal';
 
 function AddressPage() {
-
-    const [isModalVisible1, setIsModalVisible1] = useState(false);
     const [isModalVisible2, setIsModalVisible2] = useState(false);
-    const [addressList, setAddressList] = useState(false);
+    const [addressList, setAddressList] = useState(false);  //set initial to false for loading modal
     const [updateAddress, setupdateAddress] = useState(false);
+    const [currentEdit, setCurrentEdit] = useState(false);
 
     useEffect(() => {
         async function fetchAddress() {
@@ -21,38 +20,36 @@ function AddressPage() {
         fetchAddress();
     }, [updateAddress]);
 
-      const showModal1 = () => {
-        setIsModalVisible1(true);
-      };
-
-      const showModal2 = () => {
+    const showModal2 = async(event) => {
         setIsModalVisible2(true);
-      };
+        const edit = await getAddress(event);
+        setCurrentEdit(edit);
+    };
     
-      const handleOk1 = () => {
-        document.getElementById('addFormSubmit').click();
-        setIsModalVisible1(false);
+    const handleEdit = () => {
+        document.getElementById('editformSubmit').click();
+        setIsModalVisible2(false);
+    };
+
+    const handleDelete = async() => {
+        await deleteAddress(currentEdit.name);
+        setCurrentEdit(false);
+        setIsModalVisible2(false); 
         setupdateAddress(true);
         setAddressList(false);
-      };
+    };
     
-      const handleCancel1 = () => {
-        setIsModalVisible1(false);
-      };
-    
-      const handleOk2 = () => {
-        document.getElementById('editFormSubmit').click();
+    const handleCloseEdit = () => {
+        setCurrentEdit(false);
         setIsModalVisible2(false);
-      };
+    };
 
-      const handleOk3 = () => {
-        document.getElementById('deleteFormSubmit').click();
-        setIsModalVisible2(false);
-      };
-    
-      const handleCancel2 = () => {
-        setIsModalVisible2(false);
-      };
+    const submitEdit = async (formValues) => {
+        setCurrentEdit(false);
+        await editAddress(formValues, currentEdit.name);
+        setupdateAddress(true);
+        setAddressList(false);
+    }
 
     return (
         <div className="wrapperWholePage">
@@ -62,15 +59,15 @@ function AddressPage() {
                         <p className="myAddresses">My Addresses</p>
                     </Col>
                     <Col span={1} className="title">
-                        <Button id="addAddressButton" className="addAddressButton" type="text" icon={<PlusOutlined />} onClick={showModal1}/>
+                        <NewAddressModal setupdateAddress={setupdateAddress} setAddressList={setAddressList}/>
                     </Col>
                 </Row>
                 <div>
                     <Row>
                         { addressList !== false ?
                               addressList !== null ?  
-                                addressList.map((addressDetails, i) => {
-                                    return <AddressContainer key={i} {...addressDetails} {...showModal2}></AddressContainer>
+                                addressList.map((addressDetails, i) => {     
+                                    return <AddressContainer {...addressDetails} showModal2={showModal2} key={i} />
                                 })
                                 :
                                 <div className="spin details">
@@ -84,57 +81,41 @@ function AddressPage() {
                 </div>
             </div>
 
-            <Modal
-                title="ADD ADDRESS"
-                visible={isModalVisible1}
-                onOk={handleOk1}
-                onCancel={handleCancel1}
-                footer={[
-                    <Button id="addAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk1}>
-                      ADD ADDRESS
-                    </Button>,
-                  ]}
-            >
-                <div className="padding">
-                    <Form layout="vertical" onFinish={newAddress}>
-                        <Form.Item label="Address Name" name="addressName"><Input/></Form.Item>
-                        <Form.Item label="Complete Address" name="completeAddress"><Input/></Form.Item>
-                        <Form.Item label="Other Address Details" name="details"><Input/></Form.Item>
-                        <Form.Item hidden><Button id="addFormSubmit" htmlType="submit">Submit</Button></Form.Item>  
-                    </Form>
-                </div>
-                <div className="fill">
-
-                </div>
-            </Modal>
 
             <Modal
                 title="EDIT ADDRESS"
                 visible={isModalVisible2}
-                onOk={handleOk2}
-                onCancel={handleCancel2}
+                onCancel={handleCloseEdit}
                 footer={[
-                    <Button id="deleteAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk3}>
+                    <Button id="deleteAddressModalButton" key="delete" type="primary" shape="round" className="addButton" onClick={handleDelete}>
                       DELETE ADDRESS
                     </Button>,
-                    <Button id="editAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk2}>
+                    <Button id="editAddressModalButton" key="edit" type="primary" shape="round" className="addButton" onClick={handleEdit}>
                     EDIT ADDRESS
                     </Button>
                   ]}
             >
                 <div className="padding">
-                    <Form layout="vertical" >
-                        <Form.Item label="Address Name" name="addressName"><Input/></Form.Item>
-                        <Form.Item label="Complete Address" name="completeAddress"><Input/></Form.Item>
-                        <Form.Item label="Other Address Details" name="details"><Input/></Form.Item>
-                        <Form.Item hidden><Button id="editformSubmit" htmlType="submit">Submit</Button></Form.Item>
-                    </Form>
+                    {currentEdit !== false ?
+                        currentEdit !== null ?
+                            <Form layout="vertical" onFinish={submitEdit}>
+                                <Form.Item label="Address Name" name="addressName" initialValue={currentEdit.name}><Input/></Form.Item>
+                                <Form.Item label="Complete Address" name="completeAddress" initialValue={currentEdit.completeAddress}><Input/></Form.Item>
+                                <Form.Item label="Other Address Details" name="details" initialValue={currentEdit.details}><Input/></Form.Item>
+                                <Form.Item hidden><Button id="editformSubmit" htmlType="submit">Submit</Button></Form.Item>
+                            </Form>
+                            :
+                            <div className="spin details">
+                                <div className="addressName">Error fetching address.</div>    
+                            </div>
+                        :
+                        <Spin className="spin" size="large"/>
+                    }
                 </div>
                 <div className="fill">
 
                 </div>
             </Modal>
-
         </div>  
     );
 };

@@ -1,21 +1,21 @@
 import React from 'react';
 import { Row, Col, Button} from 'antd';
 
-function AddressContainer(addressDetails ,showModal2) {
+function AddressContainer(props) {
     return (
         <div className="addressContainer">
             <Row className="right">
-                <Button type="text" className="editAddress" onClick={showModal2}>
+                <Button type="text" className="editAddress" onClick={props.showModal2}>
                     EDIT ADDRESS
                 </Button>
             </Row>
             <div className="details">
                 <Row className="addressName">
-                    {addressDetails.name}
+                    {props.name}
                 </Row>
                 <Col span={15}>
                     <Row>
-                        {addressDetails.completeAddress}
+                        {props.completeAddress}
                     </Row>
                 </Col>
             </div>
