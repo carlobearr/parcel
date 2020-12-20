@@ -6,7 +6,7 @@ import Landing from './pages/landingPage';
 import Dashboard from './pages/dashboard';
 import Tracking from './pages/trackingPage';
 import EditProfile from './pages/editProfile';
-
+import BookDelivery from './pages/bookDeliveryPage';
 function Routes() {
     return (
         <Switch>
@@ -14,6 +14,7 @@ function Routes() {
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/tracking" component={Tracking}/>
         <Route path="/edit" component={EditProfile}/>
+        <Route path="/book-a-delivery" component={BookDelivery}/>
         </Switch>
     )
 };
