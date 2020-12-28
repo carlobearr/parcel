@@ -27,6 +27,7 @@ function NewAddressModal(props) {
             <Button id="addAddressButton" className="addAddressButton" type="text" icon={<PlusOutlined />} onClick={showModal1}/>
 
             <Modal
+                centered
                 title="ADD ADDRESS"
                 visible={isModalVisible1}
                 onOk={handleOk1}
@@ -38,9 +39,9 @@ function NewAddressModal(props) {
                   ]}
             >
                 <div className="padding">
-                    <Form layout="vertical" onFinish={newAddress}>
-                        <Form.Item label="Address Name" name="addressName"><Input/></Form.Item>
-                        <Form.Item label="Complete Address" name="completeAddress"><Input/></Form.Item>
+                    <Form layout="vertical" onFinish={newAddress} requiredMark={false}>
+                        <Form.Item rules={[{required: true, message: 'Please enter an address name'}]} label="Address Name" name="addressName"><Input/></Form.Item>
+                        <Form.Item rules={[{required: true, message: 'Please enter your complete address'}]} label="Complete Address" name="completeAddress"><Input/></Form.Item>
                         <Form.Item label="Other Address Details" name="details"><Input/></Form.Item>
                         <Form.Item hidden><Button id="addFormSubmit" htmlType="submit">Submit</Button></Form.Item>  
                     </Form>

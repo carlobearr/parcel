@@ -103,6 +103,7 @@
 
 .addButton {
     background-color: #00C8FF !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .ant-btn-primary:hover {
@@ -143,4 +144,11 @@
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
+}
+.ant-form-item-has-error .ant-input, .ant-form-item-has-error .ant-input-affix-wrapper, .ant-form-item-has-error .ant-input:hover, .ant-form-item-has-error .ant-input-affix-wrapper:hover {
+    background-color: #E3EFF9;
+}
+.ant-form-item-explain.ant-form-item-explain-error {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
 }
