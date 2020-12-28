@@ -196,3 +196,25 @@
     width: 50%;
     margin-top: 10%;
 }
+.ant-form-item-explain, .ant-form-item-extra {
+    font-size: 10px;
+}
+
+.ant-form-item-has-error .ant-input, .ant-form-item-has-error .ant-input-affix-wrapper, .ant-form-item-has-error .ant-input:hover, .ant-form-item-has-error .ant-input-affix-wrapper:hover {
+    background-color: #E3EFF9;
+}
+.ant-row .ant-form-item {
+    width: 100%;
+}
+.parcelWrapper {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+.maxWidth {
+    padding-top: 8px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #00C8FF;
+}
