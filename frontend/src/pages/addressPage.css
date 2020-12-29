@@ -152,3 +152,9 @@
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
 }
+.ant-btn-primary[disabled], .ant-btn-primary[disabled]:hover, .ant-btn-primary[disabled]:focus, .ant-btn-primary[disabled]:active {
+    color: white;
+}
+.ant-btn[disabled], .ant-btn[disabled]:hover, .ant-btn[disabled]:focus, .ant-btn[disabled]:active {
+    color: white;
+}

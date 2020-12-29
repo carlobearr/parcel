@@ -27,8 +27,10 @@ function AddressPage() {
     };
     
     const handleEdit = () => {
+        if (document.getElementById('addressName').value !== "" && document.getElementById('completeAddress').value !== "") {
+            setIsModalVisible2(false);
+        }
         document.getElementById('editformSubmit').click();
-        setIsModalVisible2(false);
     };
 
     const handleDelete = async() => {
@@ -45,10 +47,12 @@ function AddressPage() {
     };
 
     const submitEdit = async (formValues) => {
-        setCurrentEdit(false);
-        await editAddress(formValues, currentEdit.name);
-        setupdateAddress(true);
-        setAddressList(false);
+        if (document.getElementById('addressName').value !== "" && document.getElementById('completeAddress').value !== "") {
+            setCurrentEdit(false);
+            await editAddress(formValues, currentEdit.name);
+            setupdateAddress(true);
+            setAddressList(false);
+        }
     }
 
     return (
@@ -98,9 +102,9 @@ function AddressPage() {
                 <div className="padding">
                     {currentEdit !== false ?
                         currentEdit !== null ?
-                            <Form layout="vertical" onFinish={submitEdit}>
-                                <Form.Item label="Address Name" name="addressName" initialValue={currentEdit.name}><Input/></Form.Item>
-                                <Form.Item label="Complete Address" name="completeAddress" initialValue={currentEdit.completeAddress}><Input/></Form.Item>
+                            <Form layout="vertical" onFinish={submitEdit} requiredMark={false}>
+                                <Form.Item rules={[{required: true, message: 'Please enter an address name'}]} label="Address Name" name="addressName" initialValue={currentEdit.name}><Input/></Form.Item>
+                                <Form.Item rules={[{required: true, message: 'Please enter your complete address'}]} label="Complete Address" name="completeAddress" initialValue={currentEdit.completeAddress}><Input/></Form.Item>
                                 <Form.Item label="Other Address Details" name="details" initialValue={currentEdit.details}><Input/></Form.Item>
                                 <Form.Item hidden><Button id="editformSubmit" htmlType="submit">Submit</Button></Form.Item>
                             </Form>

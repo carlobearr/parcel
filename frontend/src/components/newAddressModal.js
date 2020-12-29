@@ -4,11 +4,12 @@ import { PlusOutlined } from '@ant-design/icons';
 import { newAddress } from "../api/addressHandler";
 
 function NewAddressModal(props) {
-    
+    const [form] = Form.useForm();
     const [isModalVisible1, setIsModalVisible1] = useState(false);
 
     const showModal1 = () => {
         setIsModalVisible1(true);
+        form.resetFields();
     };
     
     const handleCancel1 = () => {
@@ -16,10 +17,13 @@ function NewAddressModal(props) {
     };
 
     const handleOk1 = () => {
-        document.getElementById('addFormSubmit').click();
-        setIsModalVisible1(false);
-        props.setupdateAddress(true);
-        props.setAddressList(false);
+        if (document.getElementById('addressName').value !== "" && document.getElementById('completeAddress').value !== "") {
+            setIsModalVisible1(false);
+            props.setupdateAddress(true);
+            props.setAddressList(false);
+        }
+            document.getElementById('addFormSubmit').click();
+        
     };
 
     return (
@@ -39,7 +43,7 @@ function NewAddressModal(props) {
                   ]}
             >
                 <div className="padding">
-                    <Form layout="vertical" onFinish={newAddress} requiredMark={false}>
+                    <Form layout="vertical" onFinish={newAddress} requiredMark={false} form={form}>
                         <Form.Item rules={[{required: true, message: 'Please enter an address name'}]} label="Address Name" name="addressName"><Input/></Form.Item>
                         <Form.Item rules={[{required: true, message: 'Please enter your complete address'}]} label="Complete Address" name="completeAddress"><Input/></Form.Item>
                         <Form.Item label="Other Address Details" name="details"><Input/></Form.Item>
