@@ -15,10 +15,11 @@
 .bookButton {
     background-color: #00C8FF;
     color: white;
-    border-radius: 10px;
+    border-radius: 15px;
     width: 100%;
     margin-top: 4%;
     font-size: 15px;
+    margin-top: 20%;
 }
 .trackButton {
     background-color: #00C8FF;
