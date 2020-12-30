@@ -27,10 +27,7 @@ html { scroll-behavior: smooth; }
 
 .menuFont {
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-}
-
-.colorBlue {
+    font-weight: lighter;
     color: #00C8FF !important;
 }
 .headerLogo {
