@@ -4,6 +4,7 @@ import './addSenderAddress.css'; //This file uses sender's css since both of the
 import AddNewRecipientAddress from '../components/addNewRecipientAddress';
 
 function AddRecipientAddress(props) {
+    const [form] = Form.useForm();
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
@@ -11,11 +12,16 @@ function AddRecipientAddress(props) {
     };
     
     const handleCancel = () => {
+        if (document.getElementById('recipientAddress').value === "") {
+            form.resetFields();
+        }
         setIsModalVisible(false);
     };
 
     const handleOk = () => {
-        setIsModalVisible(false);
+        if (document.getElementById('recipientAddress').value !== "") {
+            setIsModalVisible(false);
+        }
     };
 
     return (
@@ -31,7 +37,7 @@ function AddRecipientAddress(props) {
                 footer={null}
             >
                 <div>
-                    <Form layout="vertical" requiredMark={false}>
+                    <Form layout="vertical" requiredMark={false} form={form}>
                         <Form.Item rules={[{ required: true, message: 'Please input an address' }]} label="Recipient Address" name="recipientAddress" className="padding">
                             <Input/>
                         </Form.Item>
