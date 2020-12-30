@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, Modal, Form, Row, Input} from 'antd';
+import { Button, Modal, Form, Row, Select} from 'antd';
 import './addSenderAddress.css';
 import AddNewSenderAddress from '../components/addNewSenderAddress';
 
@@ -39,7 +39,7 @@ function AddSenderAddress(props) {
                 <div>
                     <Form layout="vertical" requiredMark={false} form={form}>
                         <Form.Item rules={[{ required: true, message: 'Please input an address' }]} label="Sender Address" name="senderAddress" className="padding">
-                            <Input/>
+                            <Select/>
                         </Form.Item>
                         <Row justify="center" className="addSenderPadding">
                             <AddNewSenderAddress/>
