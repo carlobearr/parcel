@@ -7,7 +7,10 @@ function DeliverySuccess(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
-        setIsModalVisible(true);
+        if (document.getElementById('itemName').value !== "" && props.value !== "" && 
+        document.getElementById('itemPrice').value !== "") {
+            setIsModalVisible(true);
+        }
     };
     
     const handleCancel = () => {
