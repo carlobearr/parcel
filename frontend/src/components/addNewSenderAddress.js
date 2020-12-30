@@ -3,18 +3,24 @@ import { Button, Modal, Input, Form, Row} from 'antd';
 import './addNewSenderAddress.css';
 
 function AddNewSenderAddress(props) {
+    const [form] = Form.useForm();
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
-        setIsModalVisible(true);
+        setIsModalVisible(true);        
     };
     
     const handleCancel = () => {
-        props.setIsModalVisible(false);
+        if (document.getElementById('senderName').value === "" && document.getElementById('senderContactDetails').value === "" && document.getElementById('senderCompleteAddress').value === "") {
+            form.resetFields();
+        }
+        setIsModalVisible(false);
     };
 
     const handleOk = () => {
-        setIsModalVisible(false);
+        if (document.getElementById('senderName').value !== "" && document.getElementById('senderContactDetails').value !== "" && document.getElementById('senderCompleteAddress').value !== "") {
+            setIsModalVisible(false);
+        }
     };
 
     return (
@@ -30,7 +36,7 @@ function AddNewSenderAddress(props) {
                 onCancel={handleCancel}
                 footer={null}
             >
-                <Form layout="vertical" requiredMark={false}>
+                <Form layout="vertical" requiredMark={false} form={form}>
                     <div className="padding">
                         <Form.Item rules={[{ required: true, message: 'Please enter your name' }]} label="Sender's Name" name="senderName">
                             <Input/>
