@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import './addSenderAddress.css';
 import DeliveryAddressModal from './deliveryAddressModal';
 
-function AddSenderAddress() {
+function AddSenderAddress(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
@@ -13,7 +13,7 @@ function AddSenderAddress() {
     return (
         <div>
             <Button id="addSenderAddress" shape="circle" className="addButton" onClick={showModal}>+</Button>
-            <DeliveryAddressModal title="Sender" isModalVisible={isModalVisible}  setIsModalVisible={setIsModalVisible}/>
+            <DeliveryAddressModal title="Sender" isModalVisible={isModalVisible}  setIsModalVisible={setIsModalVisible} {...props}/>
         </div>
     );
 };

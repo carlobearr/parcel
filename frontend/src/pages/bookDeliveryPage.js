@@ -15,6 +15,9 @@ function BookDelivery() {
         return d;
     }
 
+    const testingVal = (form) => {
+        console.log(form);
+    }
     return ( 
         <div className="wrapper">
             <div className="circleWrapper">
@@ -39,7 +42,7 @@ function BookDelivery() {
                 <Row className="weather">
                     WEATHER
                 </Row>
-                <Form layout="vertical" requiredMark={false} form={form} initialValues={{month: '1', day: '1', year: getYear()}}>
+                <Form layout="vertical" requiredMark={false} form={form} initialValues={{month: '1', day: '1', year: getYear()}} onFinish={testingVal}>
                     <Row className="detailContent" gutter = {[100,0]}>
                         <Col span={12}>
                             <BookDeliveryAddress/>

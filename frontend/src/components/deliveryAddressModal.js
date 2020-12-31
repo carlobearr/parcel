@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Modal, Form, Row, Select } from 'antd';
+import { Button, Modal, Form, Row, Input } from 'antd';
 import './addSenderAddress.css'; //This file uses sender's css since both of them look the same
 import AddNewRecipientAddress from '../components/addNewRecipientAddress';
 
 function DeliveryAddressModal(props) {  
+    
     const handleCancel = () => {
         if (document.getElementById(props.title + 'Address').value === "") {
             //form.resetFields();
@@ -17,6 +18,9 @@ function DeliveryAddressModal(props) {
         }
     };
     
+    const submitAddress = (address) => {
+        props['set' + props.title + 'Address'](address[props.title + 'Address']);
+    }
     const title = "ADD " + props.title + " ADDRESS";
     const label = props.title + " address";
     const name = props.title + "Address";
@@ -32,9 +36,9 @@ function DeliveryAddressModal(props) {
             footer={null}
         >
             <div>
-                <Form layout="vertical" requiredMark={false}>
+                <Form layout="vertical" requiredMark={false} onFinish={submitAddress}>
                     <Form.Item rules={[{ required: true, message: 'Please select an address' }]} label={label} name={name} className="padding">
-                        <Select />
+                        <Input />
                     </Form.Item>
                     <Row justify="center" className="addSenderPadding">
                         <AddNewRecipientAddress />
@@ -42,7 +46,7 @@ function DeliveryAddressModal(props) {
                     <Row justify="center" className="addSenderPadding">
                         <Button id={buttonId} htmlType="submit" type="primary" shape="round" className="useAddressButton" onClick={handleOk}>
                             USE ADDRESS
-                            </Button>
+                        </Button>
                     </Row>
                 </Form>
             </div>
