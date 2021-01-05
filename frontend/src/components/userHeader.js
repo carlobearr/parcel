@@ -18,8 +18,8 @@ function UserHeader() {
                     Edit Profile
                 </Link>
             </Menu.Item>
-            <Menu.Item>
-                <Link to="#" className="menuFont">
+            <Menu.Item className="menuFont">
+                <Link to="/address">
                     My Addresses
                 </Link>
             </Menu.Item>

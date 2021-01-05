@@ -6,7 +6,6 @@ exports.loginUser = async(req, res) => {
     const verifiedUser = await verify(req.body.token).catch(console.err);
 
     if (verifiedUser.gId) {
-        await connection(); //db connect
         const user = verifiedUser;
 
         //find if existing
@@ -42,8 +41,8 @@ exports.logoutUser = async({ session }, res) => {
 
 exports.getSessionUser = async(req, res) => {
     if (req.session.user) {
-        res.status(200).json(req.session.user);
+        res.json(req.session.user);
     } else {
-        res.status(200).json(null);
+        res.json(null);
     }
 }
