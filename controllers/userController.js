@@ -17,6 +17,7 @@ exports.loginUser = async(req, res) => {
             res.json({ url: "/dashboard" });
         } else { //save new user
             const newUser = new userModel(user);
+            req.session.user = newUser;
             await newUser.save();
             res.json({ url: "/edit" });
         }
