@@ -14,13 +14,15 @@ exports.loginUser = async(req, res) => {
         //if user exist
         if (dbUser) {
             req.session.user = dbUser;
-            res.json({ url: "/dashboard" });
+            res.json({ user: dbUser, redir: '/dashboard' });
         } else { //save new user
             const newUser = new userModel(user);
             req.session.user = newUser;
             await newUser.save();
-            res.json({ url: "/edit" });
+            res.json({ user: newUser, redir: 'edit' });
         }
+    } else {
+        res.json({ error: 'login failed.' });
     }
 };
 

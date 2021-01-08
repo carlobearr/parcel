@@ -41,7 +41,7 @@ function UserHeader() {
                 <div className="leftAlign">
                     <Menu mode="horizontal" className="menuHeader">
                         <Menu.Item className="menuFont">
-                            <Link to ="/" className="colorBlue">
+                            <Link to ="/dashboard" className="colorBlue">
                                 <Image preview={false} className="headerLogo" src={process.env.PUBLIC_URL+ '/PE-Logo-Header.png'}/>
                             </Link>
                         </Menu.Item>
@@ -63,7 +63,9 @@ function UserHeader() {
                     <Menu mode="horizontal" className="menuHeader">
                             
                         <Menu.Item className="menuFont">
-                            <Button href="/book-a-delivery" type="primary" shape="round" className="buttonProperty" style={{ background: "#00C8FF", borderColor: "#00C8FF", color: 'white', fontFamily: 'Poppins, sans-serif' }}>BOOK A DELIVERY</Button>
+                            <Link to="/booking">
+                                <Button type="primary" shape="round" className="buttonProperty" style={{ background: "#00C8FF", borderColor: "#00C8FF", color: 'white', fontFamily: 'Poppins, sans-serif' }}>BOOK A DELIVERY</Button>
+                            </Link>
                         </Menu.Item>
                         <Menu.Item className="menuFont">
                             <Dropdown overlay={userMenu} placement="bottomCenter">    

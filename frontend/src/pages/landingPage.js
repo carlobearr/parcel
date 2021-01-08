@@ -6,7 +6,7 @@ import { CaretDownOutlined } from '@ant-design/icons';
 import GoogleSignInButton from '../components/googleSignInButton';
 const { Text } = Typography;
 
-function Landing() {
+function Landing(props) {
     return ( 
         <div className="wrapperWholePage">
             <div id="top" className="wrapper">
@@ -23,7 +23,7 @@ function Landing() {
                             </Text>
                         </div>
                         <div className="buttonPadding">
-                            <GoogleSignInButton></GoogleSignInButton>
+                            <GoogleSignInButton {...props}></GoogleSignInButton>
                         </div>
                     </Col>
                     <Col className="maxHeight"span={14}>

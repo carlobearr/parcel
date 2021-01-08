@@ -12,27 +12,30 @@ const { Content } = Layout;
 const App = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(null);
+    const [redirect, setRedirect] = useState(null); 
 
     useEffect(() => {
         async function updateLoggedIn() {
             setIsLoggedIn(await getSessionUser());
         }
-        updateLoggedIn();
-    }, []);
+        if(isLoggedIn === null) {
+            updateLoggedIn();
+        }
+    }, [isLoggedIn]);
 
-    return ( <
-        Layout > {
-            (isLoggedIn != null) ?
-            < UserHeader > < /UserHeader> :
-                < LandingHeader > < /LandingHeader>
-        } <
-        Content style = {
-            { background: "#FFFFFF", height: "100%" } } >
-        <
-        Routes > < /Routes> <
-        /Content> <
-        LandingFooter > < /LandingFooter> <
-        /Layout>
+    return ( 
+        <Layout > 
+            {
+                (isLoggedIn != null) ?
+                <UserHeader></UserHeader> 
+                :
+                <LandingHeader></LandingHeader>
+            } 
+            <Content style = {{ background: "#FFFFFF", height: "100%" }}>
+                <Routes isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} redirect={redirect} setRedirect={setRedirect}></Routes>
+            </Content> 
+            <LandingFooter></LandingFooter> 
+        </Layout>
     );
 };
 

@@ -1,6 +1,7 @@
 import "antd/dist/antd.css";
 import "./landingHeader.css";
 import React from 'react';
+import {Link} from 'react-router-dom';
 import { Layout, Menu, Button, Image} from 'antd';
 
 const { Header} = Layout;
@@ -11,7 +12,7 @@ function LandingHeader() {
                 <div className="leftAlign">
                     <Menu mode="horizontal" className="menuHeader">
                         <Menu.Item className="menuFont">
-                            <a href ="#top" className="colorBlue">
+                            <a href ="/" className="colorBlue">
                                 <Image preview={false} className="headerLogo" src={process.env.PUBLIC_URL+ '/PE-Logo-Header.png'}/>
                             </a>
                         </Menu.Item>
@@ -36,7 +37,9 @@ function LandingHeader() {
                     <Menu mode="horizontal" className="menuHeader">
                             
                             <Menu.Item className="menuFont">
-                                <Button type="primary" shape="round" className="buttonProperty" style={{ background: "#00C8FF", borderColor: "#00C8FF" }}>TRACK YOUR PACKAGE</Button>
+                                <Link to="/tracking">
+                                    <Button type="primary" shape="round" className="buttonProperty" style={{ background: "#00C8FF", borderColor: "#00C8FF" }}>TRACK YOUR PACKAGE</Button>
+                                </Link>
                             </Menu.Item>
                     </Menu>
                 </div>
