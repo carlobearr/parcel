@@ -3,7 +3,6 @@ import DeliverySuccess from './deliverySuccess';
 const { Paragraph } = Typography;
 
 function BookDeliveryFees(props) {
-    
     return (
         <div>
             <Row className="feeWrapper">
@@ -42,7 +41,7 @@ function BookDeliveryFees(props) {
             </Row>
             <Row className="bookButtonWrapper">
                 <Row className="bookButtonContent">
-                    <DeliverySuccess/>
+                    <DeliverySuccess {...props}/>
                 </Row>
             </Row>
         </div>

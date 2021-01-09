@@ -6,48 +6,55 @@ import AddRecipientAddress from '../components/addRecipientAddress';
 function BookDeliveryAddress(props) {
     const [senderAddress, setSenderAddress] = useState(null);
     const [recipientAddress, setRecipientAddress] = useState(null);
-    const [sendColor, setsendColor] = useState('gray');
-    const [recColor, setrecColor] = useState('gray');
 
     useEffect(() => {
         if(senderAddress !== null) {
-            setsendColor('blue');
+            props.setsendColor('blue');
+
         }
         if(recipientAddress !== null) {
-            setrecColor('blue');
+            props.setrecColor('blue');
         }
-    }, [senderAddress, recipientAddress]);
+        props.form.setFieldsValue({senderAddress, recipientAddress});
+    }, [props, senderAddress, recipientAddress]);
  
     return (
         <div>
             <Row className="addressWrapper paddingBottom">
                 <div className="addressContent">
                     <Timeline>
-                        <Timeline.Item  color={sendColor}>
+                        <Timeline.Item  color={props.sendColor}>
                             <Row className="smallFontSize bold">Sender's Address</Row>
-                                <Row>
-                                    {senderAddress === null ?
-                                        <span>Add sender address.</span>
-                                        :
-                                        <Form.Item name="senderAddress" initialValue={senderAddress}><Input className="deliveryAddress" /></Form.Item>
-
-                                    }
-                                    <AddSenderAddress senderAddress={senderAddress} setSenderAddress={setSenderAddress}/>
-                                </Row>
-                                <br/>
+                            <Row>
+                                {senderAddress === null ?
+                                    <Form.Item name="senderAddress" rules={[{ required: true, message: 'Please select an address.' }]}>
+                                         <Input className="deliveryAddress" placeholder="Add sender address." />
+                                    </Form.Item>
+                                    :
+                                    <Form.Item name="senderAddress" rules={[{ required: true, message: 'Please select an address.' }]} initialValue={senderAddress}>
+                                        <Input className="deliveryAddress"  />
+                                    </Form.Item>
+                                }
+                                <AddSenderAddress senderAddress={senderAddress} setSenderAddress={setSenderAddress}/>
+                            </Row>
+                            <br/>
                             <Row className="smallFontSize borderTop bold">
                                 Receiver's Address
                             </Row>
                             <Row>
                                 {recipientAddress === null ?
-                                    <span>Add recipient address.</span>
+                                    <Form.Item name="recipientAddress" rules={[{ required: true, message: 'Please select an address.' }]}>
+                                        <Input className="deliveryAddress" placeholder="Add recipient address."/>
+                                    </Form.Item>
                                     :
-                                    <Form.Item name="recipientAddress" initialValue={recipientAddress}><Input className="deliveryAddress" /></Form.Item>
+                                    <Form.Item name="recipientAddress" rules={[{ required: true, message: 'Please select an address.' }]} initialValue={recipientAddress}>
+                                        <Input className="deliveryAddress" />
+                                    </Form.Item>
                                 }
                                 <AddRecipientAddress recipientAddress={recipientAddress} setRecipientAddress={setRecipientAddress}/>
                             </Row> 
                         </Timeline.Item>
-                        <Timeline.Item color={recColor}/>
+                        <Timeline.Item color={props.recColor}/>
                     </Timeline>
                 </div>
             </Row>

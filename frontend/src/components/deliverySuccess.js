@@ -1,36 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Button, Modal, Form, Row} from 'antd';
 import './deliverySuccess.css';
 
 function DeliverySuccess(props) {
-    
-    const [isModalVisible, setIsModalVisible] = useState(false);
-
-    const showModal = () => {
-        if (document.getElementById('itemName').value !== "" && props.value !== "" && 
-        document.getElementById('itemPrice').value !== "") {
-            setIsModalVisible(true);
-        }
-    };
-    
     const handleCancel = () => {
-        setIsModalVisible(false);
+        props.setIsModalVisible(false);
     };
 
     const handleOk = () => {
-        setIsModalVisible(false);
-        props.setupdateAddress(true);
-        props.setAddressList(false);
+        props.setIsModalVisible(false);
     };
 
     return (
         <div>
-            <Button className="bookButton" htmlType="submit" onClick={showModal}>BOOK A DELIVERY</Button>
+            <Button className="bookButton" htmlType="submit">BOOK A DELIVERY</Button>
 
             <Modal
                 centered
                 width="33%"
-                visible={isModalVisible}
+                visible={props.isModalVisible}
                 onOk={handleOk}
                 onCancel={handleCancel}
                 footer={null}

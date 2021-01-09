@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Row, Col, Input, Checkbox, Form, Radio } from 'antd';
 
-function BookDeliveryItemDetails(props) {
+function BookDeliveryItemDetails() {
 
     const [value, setValue] = useState('');
     const onChange = e => {

@@ -1,26 +1,36 @@
-import React from 'react';
-import { Button, Modal, Form, Row, Input } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Button, Modal, Form, Row, Select, Spin, Input } from 'antd';
 import './addSenderAddress.css'; //This file uses sender's css since both of them look the same
 import AddNewRecipientAddress from '../components/addNewRecipientAddress';
+import AddNewSenderAddress from '../components/addNewSenderAddress';
+import { getAddressList } from '../api/addressHandler';
+
+const { Option } = Select;
 
 function DeliveryAddressModal(props) {  
+    const [form] = Form.useForm();
+    const [senderAddressList, setSenderAddressList ] = useState(false);
     
+    useEffect(() => {
+        async function getAddresses() {
+            setSenderAddressList(await getAddressList());
+        }
+
+        getAddresses();
+    }, []);
+
     const handleCancel = () => {
         if (document.getElementById(props.title + 'Address').value === "") {
-            //form.resetFields();
+            form.resetFields();
         }
         props.setIsModalVisible(false);
-    };
-
-    const handleOk = () => {
-        if (document.getElementById(props.title + 'Address').value !== "") {
-            props.setIsModalVisible(false);
-        }
     };
     
     const submitAddress = (address) => {
         props['set' + props.title + 'Address'](address[props.title + 'Address']);
+        props.setIsModalVisible(false);
     }
+
     const title = "ADD " + props.title + " ADDRESS";
     const label = props.title + " address";
     const name = props.title + "Address";
@@ -31,20 +41,35 @@ function DeliveryAddressModal(props) {
             centered
             width="40%"
             visible={props.isModalVisible}
-            onOk={handleOk}
             onCancel={handleCancel}
             footer={null}
         >
             <div>
-                <Form layout="vertical" requiredMark={false} onFinish={submitAddress}>
+                <Form layout="vertical" requiredMark={false} onFinish={submitAddress} form={form}>
                     <Form.Item rules={[{ required: true, message: 'Please select an address' }]} label={label} name={name} className="padding">
-                        <Input />
+                        {props.title === 'Sender' ?
+                            <Select>
+                                {senderAddressList === false ?
+                                    <Option><Spin className="spin" /></Option>
+                                    :
+                                    senderAddressList.map((addressDetails, i) => {
+                                        return <Option value={addressDetails.name} key={i}>{addressDetails.name}</Option>
+                                    })
+                                }                            
+                            </Select>
+                            :
+                            <Input />
+                        }   
                     </Form.Item>
                     <Row justify="center" className="addSenderPadding">
-                        <AddNewRecipientAddress />
+                        { props.title === 'Sender' ?
+                            <AddNewSenderAddress />
+                            :
+                            <AddNewRecipientAddress />
+                        }
                     </Row>
                     <Row justify="center" className="addSenderPadding">
-                        <Button id={buttonId} htmlType="submit" type="primary" shape="round" className="useAddressButton" onClick={handleOk}>
+                        <Button id={buttonId} htmlType="submit" type="primary" shape="round" className="useAddressButton">
                             USE ADDRESS
                         </Button>
                     </Row>

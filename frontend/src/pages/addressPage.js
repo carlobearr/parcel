@@ -59,30 +59,28 @@ function AddressPage() {
         <div className="wrapperWholePage">
             <div className="container">
                 <Row>
-                    <Col span={23} className="title">
+                    <Col span={23}>
                         <p className="myAddresses">My Addresses</p>
                     </Col>
-                    <Col span={1} className="title">
+                    <Col span={1}>
                         <NewAddressModal setupdateAddress={setupdateAddress} setAddressList={setAddressList}/>
                     </Col>
                 </Row>
-                <div>
-                    <Row>
-                        { addressList !== false ?
-                              addressList !== null ?  
-                                addressList.map((addressDetails, i) => {     
-                                    return <AddressContainer {...addressDetails} showModal2={showModal2} key={i} />
-                                })
-                                :
-                                <div className="spin details">
-                                  <p className="addressName">No addresses saved.</p>
-                                  <p>Click the '+' icon to create a new one!</p>
-                                </div>
+                <Row>
+                    { addressList !== false ?
+                            addressList !== null ?  
+                            addressList.map((addressDetails, i) => {     
+                                return <AddressContainer {...addressDetails} showModal2={showModal2} key={i} />
+                            })
                             :
-                            <Spin className="spin" size="large"/>
-                        }
-                    </Row>
-                </div>
+                            <div className="spin details">
+                                <p className="addressName">No addresses saved.</p>
+                                <p>Click the '+' icon to create a new one!</p>
+                            </div>
+                        :
+                        <Spin className="spin" size="large"/>
+                    }
+                </Row>
             </div>
 
 

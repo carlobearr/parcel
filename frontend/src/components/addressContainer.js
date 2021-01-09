@@ -3,7 +3,7 @@ import { Row, Col, Button} from 'antd';
 
 function AddressContainer(props) {
     return (
-        <div className="addressContainer">
+        <Col span={24} className="addressContainer">
             <Row className="right">
                 <Button type="text" className="editAddress" onClick={props.showModal2}>
                     EDIT ADDRESS
@@ -19,7 +19,7 @@ function AddressContainer(props) {
                     </Row>
                 </Col>
             </div>
-        </div>
+        </Col>
     )   
 }
 
