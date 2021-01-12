@@ -10,7 +10,8 @@ dependencies_job:
     - node
   script:
     - npm install
-    - cd frontend && npm install
+    - cd frontend
+    - npm install
     - echo dependencies_passed!
 
 # test_job:
@@ -29,6 +30,7 @@ build_job:
   script:
     - npm install
     - npm run build
-    - cd frontend && npm run build
+    - cd frontend 
+    - npm run build
     - echo build_passed!
 
