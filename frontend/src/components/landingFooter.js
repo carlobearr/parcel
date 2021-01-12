@@ -14,16 +14,16 @@ function LandingFooter() {
             <Row>
                 <Col span={24}>
                     <Menu mode="horizontal" className="menuFooter">
-                        <Menu.Item className="menuFont">
+                        <Menu.Item className="menuFooterFont">
                             Menu 1
                         </Menu.Item>
-                        <Menu.Item className="menuFont">
+                        <Menu.Item className="menuFooterFont">
                             Menu 2
                         </Menu.Item>
-                        <Menu.Item className="menuFont">
+                        <Menu.Item className="menuFooterFont">
                             Menu 3
                         </Menu.Item>
-                        <Menu.Item className="menuFont">
+                        <Menu.Item className="menuFooterFont">
                             Menu 4
                         </Menu.Item>
                     </Menu>
@@ -35,7 +35,7 @@ function LandingFooter() {
                 </Col>
             </Row>
             <Row>
-                <Col span={3} className="menuFont"><center><Paragraph  style={{ color: "#FFFFFF"}}>insert subheader text here</Paragraph></center></Col>
+                <Col span={3} className="menuFooterFont"><center><Paragraph  style={{ color: "#FFFFFF"}}>insert subheader text here</Paragraph></center></Col>
             </Row>
             <Row className="rightAlign">
                 <div className="marginRight"><center><Avatar style={{backgroundColor: "#FFFFFF"}}></Avatar></center></div>

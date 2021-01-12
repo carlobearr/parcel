@@ -17,9 +17,9 @@
 .marginRight {
   margin-right: 1em;
 }
-.menuFont {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+.menuFooterFont {
+  font-family: 'Poppins', sans-serif;
+  color: white;
 }
 .footerLogo {
   width: 160px;

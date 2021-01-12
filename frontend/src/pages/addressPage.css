@@ -43,14 +43,14 @@
 }
 
 .ant-btn:hover {
-    color: #00C8FF !important;
+    color: #00C8FF;
     border-bottom-color: #00C8FF;
     background-color: transparent;
     border-width: 2px;
 }
 
 .ant-btn:focus {
-    color: #00C8FF !important;
+    color: #00C8FF;
     background-color: transparent;
     border-bottom-color: #00C8FF;
     border-width: 2px;
@@ -101,7 +101,7 @@
     padding: 3%;
 }
 
-.addButton {
+.addressAddButton {
     background-color: #00C8FF !important;
     font-family: 'Poppins', sans-serif;
 }

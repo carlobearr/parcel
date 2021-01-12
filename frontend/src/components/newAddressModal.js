@@ -37,7 +37,7 @@ function NewAddressModal(props) {
                 onOk={handleOk1}
                 onCancel={handleCancel1}
                 footer={[
-                    <Button id="addAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk1}>
+                    <Button id="addAddressModalButton" key="submit" type="primary" shape="round" className="addressAddButton" onClick={handleOk1}>
                       ADD ADDRESS
                     </Button>,
                   ]}

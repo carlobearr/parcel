@@ -85,14 +85,15 @@ function AddressPage() {
 
 
             <Modal
+                centered
                 title="EDIT ADDRESS"
                 visible={isModalVisible2}
                 onCancel={handleCloseEdit}
                 footer={[
-                    <Button id="deleteAddressModalButton" key="delete" type="primary" shape="round" className="addButton" onClick={handleDelete}>
+                    <Button id="deleteAddressModalButton" key="delete" type="primary" shape="round" className="addressAddButton" onClick={handleDelete}>
                       DELETE ADDRESS
                     </Button>,
-                    <Button id="editAddressModalButton" key="edit" type="primary" shape="round" className="addButton" onClick={handleEdit}>
+                    <Button id="editAddressModalButton" key="edit" type="primary" shape="round" className="addressAddButton" onClick={handleEdit}>
                     EDIT ADDRESS
                     </Button>
                   ]}

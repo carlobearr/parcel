@@ -26,9 +26,8 @@ html { scroll-behavior: smooth; }
 }
 
 .menuFont {
-    font-family: 'Roboto', sans-serif;
-    font-weight: lighter;
     color: #00C8FF !important;
+    font-family: 'Poppins', 'sans-serif';
 }
 .headerLogo {
     width: 160px;
