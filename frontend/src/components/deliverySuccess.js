@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, Form, Row} from 'antd';
+import { Button, Modal, Form, Row, Spin} from 'antd';
 import './deliverySuccess.css';
 
 function DeliverySuccess(props) {
@@ -12,22 +12,24 @@ function DeliverySuccess(props) {
     };
 
     return (
-        <div>
-            <Button className="bookButton" htmlType="submit">BOOK A DELIVERY</Button>
-
-            <Modal
-                centered
-                width="33%"
-                visible={props.isModalVisible}
-                onOk={handleOk}
-                onCancel={handleCancel}
-                footer={null}
-            >
-                <div>
-                    <Form layout="vertical">
-                        <div className="modalWrapper">
+        <Modal
+            centered
+            width="33%"
+            visible={props.isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            footer={null}
+        >
+            <div>
+                <Form layout="vertical">
+                    {props.trackingNum === null? 
+                            <div className="modalWrapper">
+                                <Spin classname="spin"/>
+                            </div>
+                            :
+                            <div className="modalWrapper">
                             <Row justify="center" className="trackNumber trackNumberPaddingTop">
-                                TRCK-001-NUM
+                                {props.trackingNum}
                             </Row>
                             <Row justify="center" className="trackMessage">
                                 Your delivery is successfully made.
@@ -50,13 +52,11 @@ function DeliverySuccess(props) {
                                 GO BACK HOME
                                 </Button>
                             </Row>
-
                         </div>
-
-                    </Form>
-                </div>
-            </Modal>
-        </div>
+                    }
+                </Form>
+            </div>
+        </Modal>
     );
 };
 

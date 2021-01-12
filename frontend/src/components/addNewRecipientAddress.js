@@ -14,7 +14,7 @@ function AddNewRecipientAddress(props) {
     */
     useEffect(() => {
         form.validateFields(['consigneeName','consigneeContactDetails']);
-      }, [checkConsignee]);
+      }, [checkConsignee, form]);
 
     const onChange = (e) => {
         setCheckConsignee(e.target.checked);

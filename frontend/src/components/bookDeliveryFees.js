@@ -1,5 +1,4 @@
-import { Row, Col, Typography } from 'antd';
-import DeliverySuccess from './deliverySuccess';
+import { Row, Col, Typography, Button } from 'antd';
 const { Paragraph } = Typography;
 
 function BookDeliveryFees(props) {
@@ -41,7 +40,7 @@ function BookDeliveryFees(props) {
             </Row>
             <Row className="bookButtonWrapper">
                 <Row className="bookButtonContent">
-                    <DeliverySuccess {...props}/>
+                    <Button className="bookButton" htmlType="submit">BOOK A DELIVERY</Button>
                 </Row>
             </Row>
         </div>
