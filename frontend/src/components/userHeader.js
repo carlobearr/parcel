@@ -7,11 +7,11 @@ import { setLogout } from '../api/sessionHandler';
 
 const { Header } = Layout;
 
-function UserHeader() {
+function UserHeader({name}) {
     const userMenu = (
         <Menu >
             <Menu.Item className="menuFont">
-                Name of User
+                {name}
             </Menu.Item>
             <Menu.Item>
                 <Link to="/edit" className="menuFont">

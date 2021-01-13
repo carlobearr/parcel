@@ -27,7 +27,7 @@ const App = () => {
         <Layout > 
             {
                 (isLoggedIn !== null) ?
-                <UserHeader></UserHeader> 
+                <UserHeader name={isLoggedIn.name}></UserHeader> 
                 :
                 <LandingHeader></LandingHeader>
             } 
