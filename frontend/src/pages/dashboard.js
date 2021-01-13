@@ -4,7 +4,9 @@ import "./dashboard.css";
 import React from 'react';
 import Weather from '../components/weather';
 import { Layout } from 'antd';
+import { Row, Col } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
+
 
 
 function Dashboard() {
@@ -21,11 +23,34 @@ function Dashboard() {
             </svg>
             <Layout className="opaque dashboardcontainer">
 
-                <Header className="dashboardheader"><div class="normal">Welcome Back, </div><div class="bold"></div>Insert Name Here</Header>
+                <Header className="dashboardheader"><div class="normal">Welcome Back,</div><div class="bold">Insert Name Here</div></Header>
                
-                <Content >
+                <Content>
                 <Weather>
                 </Weather>
+                <Row>
+                    <Col span={6}>
+                    LEGEND
+                    </Col>
+                    <Col span={18}>
+                        <Row>
+                        Account Summary
+                        </Row>
+                        <Row>
+                        <Col span={6}>data1</Col>
+                        <Col span={6}>data2</Col>
+                        <Col span={6}>data3</Col>
+                        <Col span={6}>data4</Col>
+                        </Row>
+                        <Row>
+                        Delivery Trends
+                        </Row>
+                        <Row>
+                        <Col span={12}>data1</Col>
+                        <Col span={12}>data2</Col>
+                        </Row>
+                    </Col>
+                </Row>
                 </Content>
                 
             </Layout>

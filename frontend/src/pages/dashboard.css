@@ -21,11 +21,10 @@
     margin-bottom: 50%;
 }
 .normal{
-
     font-weight: 300;
 }
 .bold{
-    padding-right: 1%;
+    margin-left: 0.5%;
     font-weight: 600;
 }
 
