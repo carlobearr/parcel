@@ -52,9 +52,13 @@ function DeliveryAddressModal(props) {
                                 {senderAddressList === false ?
                                     <Option><Spin className="spin" /></Option>
                                     :
-                                    senderAddressList.map((addressDetails, i) => {
-                                        return <Option value={addressDetails.name} key={i}>{addressDetails.name}</Option>
-                                    })
+                                    senderAddressList !== null ?
+                                        senderAddressList.map((addressDetails, i) => {
+                                            return <Option value={addressDetails.name} key={i}>{addressDetails.name}</Option>
+                                        })
+                                        :
+                                        null
+
                                 }                            
                             </Select>
                             :
