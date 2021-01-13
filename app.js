@@ -10,6 +10,7 @@ const MongoStore = require('connect-mongo')(session);
 //routes
 const adminRoute = require('./routes/adminRoute');
 const userRoute = require('./routes/userRoute');
+const addressRoute = require('./routes/addressRoute');
 
 //app settings
 const app = express();
@@ -44,3 +45,4 @@ app.listen(port, () => {
 //use routes
 app.use('/', adminRoute);
 app.use('/user', userRoute);
+app.use('/address', addressRoute);
