@@ -6,6 +6,8 @@ stages:
 
 dependencies_job:
   stage: dependencies
+  tags:
+    - node
   script:
     - npm install
     - npm run build
