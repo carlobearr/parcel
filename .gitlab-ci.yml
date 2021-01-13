@@ -10,8 +10,10 @@ dependencies_job:
     - node
   script:
     - npm install
+    - npm run build
     - cd frontend
     - npm install
+    - npm run build
     - echo dependencies_passed!
 
 # test_job:
@@ -23,14 +25,13 @@ dependencies_job:
 #     - npm run test
 #     - echo test_passed!
 
-build_job:
-  stage: build
-  tags:
-    - node
-  script:
-    - npm install
-    - npm run build
-    - cd frontend 
-    - npm run build
-    - echo build_passed!
+# build_job:
+#   stage: build
+#   tags:
+#     - node
+#   script:
+#     - npm run build
+#     - cd frontend 
+#     - npm run build
+#     - echo build_passed!
 
