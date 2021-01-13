@@ -30,7 +30,10 @@ function Dashboard() {
                 </Weather>
                 <Row>
                     <Col span={6}>
-                    LEGEND
+                        <Row>Pie Chart</Row>
+                        <Row>Legend</Row>
+                        <Row><Col span={12}>1</Col><Col span={12}>2</Col></Row>
+                        <Row><Col span={12}>3</Col><Col span={12}>4</Col></Row>
                     </Col>
                     <Col span={18}>
                         <Row>
@@ -46,8 +49,7 @@ function Dashboard() {
                         Delivery Trends
                         </Row>
                         <Row>
-                        <Col span={12}>data1</Col>
-                        <Col span={12}>data2</Col>
+                        <Col span={12}>Graphs</Col>
                         </Row>
                     </Col>
                 </Row>
