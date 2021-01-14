@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="270" viewBox="0 0 1920 270">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00c8ff;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="121" cy="-166" r="301"/>
+  <circle class="cls-1" cx="1789" cy="-84" r="301"/>
+</svg>
