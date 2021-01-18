@@ -9,7 +9,6 @@ build_job:
     - node
   script:
     - npm install
-    - npm run build
     - cd frontend
     - npm install
     - npm run build
