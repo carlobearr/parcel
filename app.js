@@ -14,6 +14,7 @@ const deliveryRoute = require('./routes/deliveryAddress')
 
 //app settings
 const app = express();
+const path = require('path');
 const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,8 +42,13 @@ app.listen(port, () => {
     console.log("API running at localhost:" + port);
 });
 
+app.use(express.static('frontend/build'));
+
 //use routes
-app.use('/', adminRoute);
+
 app.use('/user', userRoute);
 app.use('/address', addressRoute);
 app.use('/delivery', deliveryRoute);
+app.get('*', (req, res) => {                       
+    res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'));                               
+});
