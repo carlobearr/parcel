@@ -28,11 +28,11 @@ function BookDeliveryAddress(props) {
                             <Row>
                                 {senderAddress === null ?
                                     <Form.Item name="senderAddress" rules={[{ required: true, message: 'Please select an address.' }]}>
-                                         <Input className="deliveryAddress" placeholder="Add sender address." />
+                                         <Input disabled className="deliveryAddress" placeholder="Add sender address." />
                                     </Form.Item>
                                     :
                                     <Form.Item name="senderAddress" rules={[{ required: true, message: 'Please select an address.' }]} initialValue={senderAddress}>
-                                        <Input className="deliveryAddress"  />
+                                        <Input disabled className="deliveryAddress"  />
                                     </Form.Item>
                                 }
                                 <AddSenderAddress senderAddress={senderAddress} setSenderAddress={setSenderAddress}/>
@@ -44,11 +44,11 @@ function BookDeliveryAddress(props) {
                             <Row>
                                 {recipientAddress === null ?
                                     <Form.Item name="recipientAddress" rules={[{ required: true, message: 'Please select an address.' }]}>
-                                        <Input className="deliveryAddress" placeholder="Add recipient address."/>
+                                        <Input disabled className="deliveryAddress" placeholder="Add recipient address."/>
                                     </Form.Item>
                                     :
                                     <Form.Item name="recipientAddress" rules={[{ required: true, message: 'Please select an address.' }]} initialValue={recipientAddress}>
-                                        <Input className="deliveryAddress" />
+                                        <Input disabled className="deliveryAddress" />
                                     </Form.Item>
                                 }
                                 <AddRecipientAddress recipientAddress={recipientAddress} setRecipientAddress={setRecipientAddress}/>

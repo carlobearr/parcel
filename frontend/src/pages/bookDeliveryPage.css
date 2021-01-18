@@ -273,3 +273,7 @@
     color: #00C8FF;
     font-family: 'Poppins', sans-serif;
 }
+.ant-input[disabled] {
+    background-color: white;
+    color: #00C8FF !important;
+}
