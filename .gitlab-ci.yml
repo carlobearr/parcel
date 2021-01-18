@@ -26,4 +26,7 @@ build_job:
 deploy:
   stage: deploy
   script:
-  - dpl --provider=heroku --app=pelican-express-development --api-key=$HEROKU_API_KEY
+  - git push https://$HEROKU_USER:$HEROKU_API_KEY@git.heroku.com/pelican-express-development.git HEAD:master
+  - echo "Deployed to production server"
+  only:
+  - development
