@@ -24,7 +24,7 @@ function DeliverySuccess(props) {
                 <Form layout="vertical">
                     {props.trackingNum === null? 
                             <div className="modalWrapper">
-                                <Spin classname="spin"/>
+                                <Spin className="spin"/>
                             </div>
                             :
                             <div className="modalWrapper">

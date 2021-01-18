@@ -10,14 +10,17 @@ const { Option } = Select;
 function DeliveryAddressModal(props) {  
     const [form] = Form.useForm();
     const [senderAddressList, setSenderAddressList ] = useState(false);
-    
+    const [updateAddress, setUpdateAddress] = useState(true);
+
     useEffect(() => {
         async function getAddresses() {
-            setSenderAddressList(await getAddressList());
+            if(updateAddress) {
+                setSenderAddressList(await getAddressList());
+                setUpdateAddress(false);
+            }
         }
-
         getAddresses();
-    }, []);
+    }, [updateAddress, senderAddressList]);
 
     const handleCancel = () => {
         if (document.getElementById(props.title + 'Address').value === "") {
@@ -67,7 +70,7 @@ function DeliveryAddressModal(props) {
                     </Form.Item>
                     <Row justify="center" className="addSenderPadding">
                         { props.title === 'Sender' ?
-                            <AddNewSenderAddress />
+                            <AddNewSenderAddress setupdateAddress={setUpdateAddress} setAddressList={setSenderAddressList}/>
                             :
                             <AddNewRecipientAddress />
                         }
