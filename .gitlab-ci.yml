@@ -24,12 +24,15 @@ build_job:
 #     - echo test_passed!
 
 deploy:
+  type: deploy
   stage: deploy
+  image: ruby:latest
   script:
-  - heroku login -i
-  - $HEROKU_USER
-  - $HEROKU_API_KEY
-  - git push https:/git.heroku.com/pelican-express-development.git HEAD:master
+  - apt-get update -qy
+  - apt-get install -y ruby-dev
+  - gem install dpl
+  - dpl --provider=heroku --app=pelican-express-development --api-key=$HEROKU_API_KEY
   - echo "Deployed to production server"
+
   only:
   - development
