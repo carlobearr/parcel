@@ -42,7 +42,7 @@ app.listen(port, () => {
     console.log("API running at localhost:" + port);
 });
 
-app.use(express.static('frontend/build'));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 //use routes
 
