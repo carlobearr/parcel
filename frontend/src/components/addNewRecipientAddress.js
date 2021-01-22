@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Modal, Input, Form, Row, Col, Checkbox} from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import './addNewSenderAddress.css'; //This file uses sender's css since both of them look the same
 
 function AddNewRecipientAddress(props) {
@@ -40,11 +41,32 @@ function AddNewRecipientAddress(props) {
 
     return (
         <div>
+            { props.title === 'bookDelivery' ? 
             <Button id="addNewAddressButton" className="useNewAddressButton" onClick={showModal}>
                 USE NEW ADDRESS
-            </Button>
+            </Button> 
+            :
+            (
+                props.title === 'addWaybill' ?
+                <Button id="addAddressButton" className="addAddressButton" type="text" icon={<PlusOutlined />} onClick={showModal}/>
+                :
+                <Button type="text" className="editAddress" onClick={showModal}>
+                    EDIT WAYBILL
+                </Button>
+                )
+            }
             <Modal
-                title="USE NEW RECIPIENT ADDRESS"
+                title={
+                    props.title === 'bookDelivery' ?
+                    'USE NEW RECIPIENT ADDRESS'
+                    :
+                    (
+                        props.title === 'addWaybill' ?
+                        "ADD NEW RECIPIENT ADDRESS"
+                        :
+                        "EDIT RECIPIENT ADDRESS"
+                    )
+                    }
                 centered
                 visible={isModalVisible}
                 onOk={handleOk}
@@ -96,9 +118,22 @@ function AddNewRecipientAddress(props) {
                     </div>
                     <div className="fill"/>
                     <Row justify="center" className="useAddressPaddingBottom">
+                        {props.title === 'bookDelivery' ?
                         <Button id="useNewRecipientAddressButton" htmlType="submit" type="primary" shape="round" className="useAddressButton" onClick={handleOk}>
                             USE ADDRESS
                         </Button>
+                        :
+                        (
+                        props.title === 'addWaybill' ?
+                        <Button id="useNewRecipientAddressButton" htmlType="submit" type="primary" shape="round" className="useAddressButton" onClick={handleOk}>
+                            ADD ADDRESS
+                        </Button>
+                        :
+                        <Button id="useNewRecipientAddressButton" htmlType="submit" type="primary" shape="round" className="useAddressButton" onClick={handleOk}>
+                            EDIT ADDRESS
+                        </Button>
+                        )
+                        }
                     </Row>
                 </Form>
             </Modal>

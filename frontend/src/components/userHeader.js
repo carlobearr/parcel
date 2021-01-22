@@ -52,7 +52,7 @@ function UserHeader({name}) {
                             <Link to ="#" className="menuFont">TRANSACTION</Link>
                         </Menu.Item>
                         <Menu.Item className="menuFont">
-                            <Link to ="#" className="menuFont">CREATE WAYBILL</Link>
+                            <Link to ="/waybills" className="menuFont">CREATE WAYBILL</Link>
                         </Menu.Item>
                         <Menu.Item className="menuFont">
                             <Link to ="/tracking" className="menuFont">TRACK</Link>

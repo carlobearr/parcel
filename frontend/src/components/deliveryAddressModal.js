@@ -72,7 +72,7 @@ function DeliveryAddressModal(props) {
                         { props.title === 'Sender' ?
                             <AddNewSenderAddress setupdateAddress={setUpdateAddress} setAddressList={setSenderAddressList}/>
                             :
-                            <AddNewRecipientAddress />
+                            <AddNewRecipientAddress title={'bookDelivery'}/>
                         }
                     </Row>
                     <Row justify="center" className="addSenderPadding">
