@@ -5,11 +5,6 @@ import { Row, Col} from 'antd';
 import AddNewRecipientAddress from '../components/addNewRecipientAddress';
 
 function WaybillPage() {
-    const [isModalVisible, setIsModalVisible] = useState(false);
-
-    const showModal = () => {
-        setIsModalVisible(true);
-    };
 
     return (
         <div className="wrapperWholePage">

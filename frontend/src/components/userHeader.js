@@ -69,7 +69,7 @@ function UserHeader({name}) {
                         </Menu.Item>
                         <Menu.Item className="menuFont">
                             <Dropdown overlay={userMenu} placement="bottomCenter">    
-                                <Avatar size="large"/>
+                                <Avatar size="large" style={{backgroundColor:"#00C8FF"}}/>
                             </Dropdown>
                         </Menu.Item>
                             

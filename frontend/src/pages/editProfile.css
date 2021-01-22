@@ -4,6 +4,7 @@
 }
 
 .editProfileMain {
+    position: relative;
     display: block;
     background-color: #ffffff;
     width: 700px;
@@ -29,4 +30,21 @@
     color: #00C8FF;
     font-size: 18px;
     font-weight: bold;
+}
+.submitRight {
+    color: white;
+    background-color: #00C8FF;
+    font-family: 'Poppins';
+    border-radius: 12px;
+    width: 150px;
+    height: 40px;
+}
+.profileCenter {
+    text-align: center;
+    vertical-align: middle;
+}
+.profilePicture {
+    background-color: #00C8FF;
+    margin-top: 30%;
+    margin-left: 15%;
 }
