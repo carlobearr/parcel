@@ -1,6 +1,6 @@
 import "antd/dist/antd.css";
 import "./addressPage.css";
-import React, {useState} from 'react';
+import React from 'react';
 import { Row, Col} from 'antd';
 import AddNewRecipientAddress from '../components/addNewRecipientAddress';
 
