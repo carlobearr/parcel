@@ -17,6 +17,7 @@
     position: relative;
     margin-left: 10%;
     margin-right: 10%;
+    color: #00C8FF;
 }
 .normal{
     font-weight: 300;
@@ -45,9 +46,8 @@ svg{
 }
 
 .piechart{
-    height: 300px;
-    width:300px;
-
+    width: 100%;
+    padding-top: 100%;
     background-color: #00C8FF;
     border-radius: 50%;
     display: inline-block;
@@ -57,18 +57,20 @@ svg{
     position: relative;
     border-radius: 25px;
     background-color: white;
-    color: #00C8FF;
+
     font-weight: normal;
     top: 0%;
     width: 80%;
     height: 100%;
     box-shadow: 0px 0px 8px -3px rgba(138, 131, 138, 1);
     justify-content: center;
+    text-align: center;
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 15px;
     padding-bottom: 15px;
-    margin-bottom: 15px;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 
@@ -88,4 +90,28 @@ svg{
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 15px;
+    text-align: center;
+}
+
+.title{
+    color: #00C8FF;
+}
+
+.statnum{
+    font-size: xx-large;
+    margin-bottom: -20px;
+    font-weight:800;
+}
+
+.centered{
+    margin-inline: auto;
+}
+
+.bodyheader{
+    margin-inline-start: 5%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    font-size: large;
+    font-weight: 600;
+    background-color:  rgba(138, 131, 138, 0);
 }

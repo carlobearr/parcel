@@ -25,23 +25,23 @@ function Dashboard() {
                 <Content  className="dashboardcontainer">
                 <Row>
                     <Col span={6}>
-                        <Row><div className="piechart">pie chart</div></Row>
-                        <Row>Legend</Row>
-                        <Row><Col span={12}>1</Col><Col span={12}>2</Col></Row>
-                        <Row><Col span={12}>3</Col><Col span={12}>4</Col></Row>
+                        <Row><div className="piechart"></div></Row>
+                        <Row><div className="centered">Legend</div></Row>
+                        <Row><Col span={12}>Successful Delivery</Col><Col span={12}>Failed Delivery</Col></Row>
+                        <Row><Col span={12}>Pending Delivery</Col><Col span={12}></Col></Row>
                     </Col>
                     <Col span={18}>
                         <Row>
-                        Account Summary
+                        <div className="bodyheader">Account Summary</div>
                         </Row>
                         <Row>
-                        <Col span={6}><div className="stats">stat1</div></Col>
-                        <Col span={6}><div className="stats">stat2</div></Col>
-                        <Col span={6}><div className="stats">stat3</div></Col>
-                        <Col span={6}><div className="stats">stat4</div></Col>
+                        <Col span={6}><div className="stats"><div className="valuetd statnum">10</div><br></br>Total Deliveries</div></Col>
+                        <Col span={6}><div className="stats"><div className="valuesd statnum">10</div><br></br>Successful Deliveries</div></Col>
+                        <Col span={6}><div className="stats"><div className="valuepd statnum">10</div><br></br>Pending Deliveries</div></Col>
+                        <Col span={6}><div className="stats"><div className="valuefd statnum">10</div><br></br>Failed Deliveries</div></Col>
                         </Row>
                         <Row>
-                        Delivery Trends
+                        <div className="bodyheader">Delivery Trends</div>
                         </Row>
                         <Row>
                         <Col span={24}><div className="statsgraph">graph</div></Col>
