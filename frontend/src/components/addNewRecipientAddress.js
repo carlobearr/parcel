@@ -48,6 +48,9 @@ function AddNewRecipientAddress(props) {
                 if(props.setUpdateList) {
                     props.setUpdateList(result);
                 }
+                if(props.setRecipientAddressList) {
+                    props.setRecipientAddressList(false);
+                }
                 setIsModalVisible(false);
             }
             else {

@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, Form, Row, Select, Spin, Input } from 'antd';
+import { Button, Modal, Form, Row, Select, Spin } from 'antd';
 import './addSenderAddress.css'; //This file uses sender's css since both of them look the same
 import AddNewRecipientAddress from '../components/addNewRecipientAddress';
 import AddNewSenderAddress from '../components/addNewSenderAddress';
 import { getAddressList } from '../api/addressHandler';
+import { getWaybillList } from '../api/waybillHandler';
 
 const { Option } = Select;
 
 function DeliveryAddressModal(props) {  
     const [form] = Form.useForm();
     const [senderAddressList, setSenderAddressList ] = useState(false);
+    const [recipientAddressList, setRecipientAddressList] = useState(false);
     const [updateAddress, setUpdateAddress] = useState(true);
 
     useEffect(() => {
         async function getAddresses() {
             if(updateAddress) {
                 setSenderAddressList(await getAddressList());
+                setRecipientAddressList(await getWaybillList());
                 setUpdateAddress(false);
             }
         }
         getAddresses();
-    }, [updateAddress, senderAddressList]);
+    }, [updateAddress, senderAddressList, recipientAddressList]);
 
     const handleCancel = () => {
         if (document.getElementById(props.title + 'Address').value === "") {
@@ -65,14 +68,26 @@ function DeliveryAddressModal(props) {
                                 }                            
                             </Select>
                             :
-                            <Input />
+                            <Select>
+                                {recipientAddressList === false ?
+                                    <Option><Spin className="spin" /></Option>
+                                    :
+                                    recipientAddressList !== null ?
+                                    recipientAddressList.map((addressDetails, i) => {
+                                            return <Option value={addressDetails.recipientName} key={i}>{addressDetails.recipientName}</Option>
+                                        })
+                                        :
+                                        null
+
+                                }                            
+                            </Select>
                         }   
                     </Form.Item>
                     <Row justify="center" className="addSenderPadding">
                         { props.title === 'Sender' ?
                             <AddNewSenderAddress setupdateAddress={setUpdateAddress} setAddressList={setSenderAddressList}/>
                             :
-                            <AddNewRecipientAddress title={'bookDelivery'}/>
+                            <AddNewRecipientAddress setUpdateList={setUpdateAddress} setRecipientAddressList={setRecipientAddressList} title={'bookDelivery'}/>
                         }
                     </Row>
                     <Row justify="center" className="addSenderPadding">
