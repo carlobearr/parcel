@@ -26,7 +26,7 @@ function EditProfile(props) {
     return (
         <div className="editProfilePage">
             <div className="editProfileMain">
-                <Form layout="vertical" onFinish={submitEdit}>
+                <Form layout="vertical" requiredMark={false} onFinish={submitEdit}>
                     <Row>
                         <Col span={16}>
                             <Row>
@@ -34,17 +34,17 @@ function EditProfile(props) {
                             </Row>
                             <Row gutter={[0,15]}>
                                 <Col span={20}>
-                                    <Form.Item label="Full Name" name="name" initialValue={props.isLoggedIn.name}><Input/></Form.Item>
+                                    <Form.Item label="Full Name" rules={[{ required: true, message: "Please enter your full name" }]} name="name" initialValue={props.isLoggedIn.name}><Input/></Form.Item>
                                 </Col>
                             </Row>
                             <Row gutter={[0,15]}>
                                 <Col span={20}>
-                                    <Form.Item label="Email Address" name="email" initialValue={props.isLoggedIn.email}><Input/></Form.Item>
+                                    <Form.Item label="Email Address" rules={[{pattern: new RegExp("[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"), required: true, message: "Please enter a valid email address" }]} name="email" initialValue={props.isLoggedIn.email}><Input/></Form.Item>
                                 </Col>
                             </Row>
                             <Row gutter={[0,15]}>
                                 <Col span={20}>
-                                    <Form.Item label="Cellphone Number" name="cellphoneNumber" initialValue={props.isLoggedIn.cellphoneNumber}><Input placeholder="Not required."/></Form.Item>
+                                    <Form.Item label="Cellphone Number" rules={[{ pattern: '^[0-9]{10,11}$', message: "Please enter a valid cellphone number" }]} name="cellphoneNumber" initialValue={props.isLoggedIn.cellphoneNumber}><Input placeholder="Not required."/></Form.Item>
                                 </Col>
                             </Row>
                         </Col>
