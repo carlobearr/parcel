@@ -16,21 +16,6 @@ function LandingHeader() {
                                 <Image preview={false} className="headerLogo" src={process.env.PUBLIC_URL+ '/PE-Logo-Header.png'}/>
                             </a>
                         </Menu.Item>
-                        <Menu.Item className="menuFont">
-                            <a href ="#menu1" className="colorBlue">
-                                Menu 1
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className="menuFont">
-                            <a href ="#menu2" className="colorBlue">
-                                Menu 2
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className="menuFont">
-                            <a href ="#menu3" className="colorBlue">
-                                Menu 3
-                            </a>
-                        </Menu.Item>
                     </Menu>
                 </div>
                 <div className="rightAlign">

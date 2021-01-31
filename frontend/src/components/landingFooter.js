@@ -10,38 +10,20 @@ const { Footer} = Layout;
 function LandingFooter() {
 
     return (
-        <Footer className="footer">
-            <Row>
-                <Col span={24}>
-                    <Menu mode="horizontal" className="menuFooter">
-                        <Menu.Item className="menuFooterFont">
-                            Menu 1
-                        </Menu.Item>
-                        <Menu.Item className="menuFooterFont">
-                            Menu 2
-                        </Menu.Item>
-                        <Menu.Item className="menuFooterFont">
-                            Menu 3
-                        </Menu.Item>
-                        <Menu.Item className="menuFooterFont">
-                            Menu 4
-                        </Menu.Item>
-                    </Menu>
-                </Col>
-            </Row>         
+        <Footer className="footer">       
             <Row>
                 <Col span={3}>
                     <Image preview={false} className="footerLogo" src={process.env.PUBLIC_URL+ '/PE-Logo-Footer.png'}/>
                 </Col>
             </Row>
             <Row>
-                <Col span={3} className="menuFooterFont"><center><Paragraph  style={{ color: "#FFFFFF"}}>insert subheader text here</Paragraph></center></Col>
-            </Row>
-            <Row className="rightAlign">
-                <div className="marginRight"><center><Avatar style={{backgroundColor: "#FFFFFF"}}></Avatar></center></div>
-                <div className="marginRight"><center><Avatar style={{backgroundColor: "#FFFFFF"}}></Avatar></center></div>
-                <div className="marginRight"><center><Avatar style={{backgroundColor: "#FFFFFF"}}></Avatar></center></div>
-                <div className="marginRight"><center><Avatar style={{backgroundColor: "#FFFFFF"}}></Avatar></center></div>
+                <Col span={3} className="menuFooterFont"><center><Paragraph  style={{ color: "#FFFFFF"}}>Fast, Reliable, and Colorful</Paragraph></center></Col>
+                <Col offset={17} className="">
+                    <Avatar className="marginRight" src={process.env.PUBLIC_URL+ '/facebook.png'}></Avatar>
+                    <Avatar className="marginRight" src={process.env.PUBLIC_URL+ '/twitter.png'}></Avatar>
+                    <Avatar className="marginRight" src={process.env.PUBLIC_URL+ '/instagram.png'}></Avatar>
+                    <Avatar className="marginRight" src={process.env.PUBLIC_URL+ '/discord.png'}></Avatar>
+                </Col>
             </Row>
         </Footer>
     );
