@@ -37,8 +37,12 @@ const App = () => {
                     :
                     <Routes isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} redirect={redirect} setRedirect={setRedirect}></Routes>
                 }
-            </Content> 
-            <LandingFooter></LandingFooter> 
+            </Content>
+            {isLoggedIn === null ?
+                <LandingFooter></LandingFooter> 
+                :
+                <div/>
+            }
         </Layout>
     );
 };

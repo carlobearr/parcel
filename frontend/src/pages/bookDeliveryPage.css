@@ -43,7 +43,7 @@
     top: 18%;
     left: 15%;
     width: 70%;
-    height: 75%;
+    height: 100%;
 }
 
 .weather {
@@ -234,7 +234,7 @@
     border-radius: 25px;
     font-weight: normal;
     width: 50%;
-    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .ant-form-item-explain,

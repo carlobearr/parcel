@@ -1,6 +1,8 @@
 .editProfilePage {
+    position: relative;
     background-color: #00C8FF;
-    padding: 50px;
+    padding: 8%;
+    height: calc(100vh - 66px);
 }
 
 .editProfileMain {

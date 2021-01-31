@@ -166,7 +166,7 @@ function Landing(props) {
                     </Col>
                 </Row>
             </div>
-            <div id="menu3" className="wrapper">
+            <div id="menu3" className="wrapper4">
                 <Row>
                     <Col span={24} className="avatarMargin">
                         <Row className="page4">
