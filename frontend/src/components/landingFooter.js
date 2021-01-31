@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "./landingFooter.css";
 import React from 'react';
-import { Layout, Row, Col, Avatar, Menu, Image} from 'antd';
+import { Layout, Row, Col, Avatar, Image} from 'antd';
 import { Typography } from 'antd';
 const { Paragraph } = Typography;
 
