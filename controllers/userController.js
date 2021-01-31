@@ -49,3 +49,17 @@ exports.getSessionUser = async(req, res) => {
         res.json(null);
     }
 }
+
+exports.editUser = async(req, res) => {
+    var edit = req.body;
+
+    var response = await userModel.updateOne({ gId: req.session.user.gId }, edit);
+
+    if (response.ok === 1) {
+        const updated = await userModel.findOne({ gId: req.session.user.gId });
+        req.session.user = updated;
+        res.json({ updated });
+    } else {
+        res.json({ err: 'update failed.' });
+    }
+}

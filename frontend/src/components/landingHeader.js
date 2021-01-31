@@ -12,24 +12,9 @@ function LandingHeader() {
                 <div className="leftAlign">
                     <Menu mode="horizontal" className="menuHeader">
                         <Menu.Item className="menuFont">
-                            <a href ="#top" className="colorBlue">
+                            <Link to="/" className="colorBlue">
                                 <Image preview={false} className="headerLogo" src={process.env.PUBLIC_URL+ '/PE-Logo-Header.png'}/>
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className="menuFont">
-                            <a href ="#menu1" className="colorBlue">
-                                Menu 1
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className="menuFont">
-                            <a href ="#menu2" className="colorBlue">
-                                Menu 2
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className="menuFont">
-                            <a href ="#menu3" className="colorBlue">
-                                Menu 3
-                            </a>
+                            </Link>
                         </Menu.Item>
                     </Menu>
                 </div>

@@ -1,5 +1,6 @@
 const deliveryModel = require('../models/Delivery');
 const addressModel = require('../models/Address');
+const waybillModel = require('../models/Waybill');
 
 //converts json values to database model format
 async function databasify(deliveryDetails, userId) {
@@ -29,8 +30,26 @@ async function databasify(deliveryDetails, userId) {
 
     //temporaries
     //Add recipient Id linking here - same as senderAddress
+    const recAddress = await waybillModel.findOne({ userId: userId, recipientName: deliveryDetails.recipientAddress });
 
-    deliveryDetails['trackingNumber'] = 'TRCK-001-NUM';
+    if (recAddress !== null) {
+        deliveryDetails['recipientAddress'] = recAddress._id;
+    } else {
+        return { err: 'Error retrieveing recipient address' };
+    }
+
+    //generate tracking number
+    const userDeliveries = await deliveryModel.find({ userId: userId });
+    const track1 = userId.substr(-3);
+    const track2 = () => {
+        var count = userDeliveries.length.toString();
+        while (count.length < 3) {
+            count = 0 + count;
+        }
+        return count;
+    }
+
+    deliveryDetails['trackingNumber'] = 'TRCK-' + track1 + '-' + track2();
     //add itemPhoto here
 
     return deliveryDetails;

@@ -11,6 +11,7 @@ const adminRoute = require('./routes/adminRoute');
 const userRoute = require('./routes/userRoute');
 const addressRoute = require('./routes/addressRoute');
 const deliveryRoute = require('./routes/deliveryAddress')
+const waybillRoute = require('./routes/waybillRoute');
 
 //app settings
 const app = express();
@@ -49,6 +50,7 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.use('/user', userRoute);
 app.use('/address', addressRoute);
 app.use('/delivery', deliveryRoute);
+app.use('/waybill', waybillRoute);
 app.get('*', (req, res) => {                       
     res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'));                               
 });

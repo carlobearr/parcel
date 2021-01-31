@@ -52,7 +52,7 @@ function UserHeader({name}) {
                             <Link to ="#" className="menuFont">TRANSACTION</Link>
                         </Menu.Item>
                         <Menu.Item className="menuFont">
-                            <Link to ="#" className="menuFont">CREATE WAYBILL</Link>
+                            <Link to ="/waybills" className="menuFont">CREATE WAYBILL</Link>
                         </Menu.Item>
                         <Menu.Item className="menuFont">
                             <Link to ="/tracking" className="menuFont">TRACK</Link>
@@ -69,7 +69,7 @@ function UserHeader({name}) {
                         </Menu.Item>
                         <Menu.Item className="menuFont">
                             <Dropdown overlay={userMenu} placement="bottomCenter">    
-                                <Avatar size="large"/>
+                                <Avatar size="large" style={{backgroundColor:"#00C8FF"}}/>
                             </Dropdown>
                         </Menu.Item>
                             

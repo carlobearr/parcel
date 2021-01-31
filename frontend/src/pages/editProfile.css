@@ -1,9 +1,12 @@
 .editProfilePage {
+    position: relative;
     background-color: #00C8FF;
-    padding: 50px;
+    padding: 8%;
+    height: calc(100vh - 66px);
 }
 
 .editProfileMain {
+    position: relative;
     display: block;
     background-color: #ffffff;
     width: 700px;
@@ -22,6 +25,8 @@
 .ant-input {
     border-radius: 5px;
     background-color: #E3EFF9;
+    color: #00C8FF;
+    font-weight: bolder;
     border: none;
 }
 
@@ -29,4 +34,29 @@
     color: #00C8FF;
     font-size: 18px;
     font-weight: bold;
+}
+
+.submitRight {
+    color: white;
+    background-color: #00C8FF;
+    font-family: 'Poppins';
+    border-radius: 12px;
+    width: 150px;
+    height: 40px;
+}
+
+.profileCenter {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.profilePicture {
+    background-color: #00C8FF;
+    margin-top: 30%;
+    margin-left: 15%;
+}
+
+.edit-updates {
+    font-weight: bold;
+    color: #00C8FF;
 }
