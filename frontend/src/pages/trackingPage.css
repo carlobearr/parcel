@@ -61,6 +61,7 @@
     padding: 5px;
     min-width: 20vw;
     border-radius: 50px 50px 50px 50px;
+    cursor: pointer;
     /*Text Options*/
     color: #00C8FF;
     font-size: 18px;
@@ -86,7 +87,7 @@
 }
 
 .tracking-form {
-    display: block;
+    display: inline-block;
     width: auto;
     margin-left: 100px;
 }

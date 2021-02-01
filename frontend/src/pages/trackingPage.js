@@ -6,13 +6,12 @@ import {getTracker} from '../api/trackerHandler';
 function Tracking() {
 
     const [tracking, setTracking] = useState(null);
-
+    const [form] = Form.useForm();
     const submitTracking = (tracker) => {
         async function get() {
             const result = await getTracker(tracker);
             if(result) {
                 setTracking(result);
-                document.getElementsByClassName("tracking-number")[0].innerHTML = result.trackingNumber;
             }
         }
 
@@ -52,6 +51,18 @@ function Tracking() {
         return timeline;
     }
 
+    const trackAgain = () => {
+        document.getElementsByClassName('tracking-number')[0].innerHTML = 'Track Again';
+    }
+
+    const showTracking = () => {
+        document.getElementsByClassName('tracking-number')[0].innerHTML = tracking.trackingNumber;
+    }
+
+    const resetTracking = () => {
+        setTracking(null);
+        form.resetFields(['trackingNumber']);
+    }
     return ( 
         <div> 
             <Row> 
@@ -59,7 +70,7 @@ function Tracking() {
                     <div className="tracking-header">                        
                         <div className="tracking-title"> Tracking </div>
                         {tracking !== null ?
-                            <div className="tracking-number"></div>
+                            <div className="tracking-number" onMouseOver={trackAgain} onMouseLeave={showTracking} onClick={resetTracking}>{tracking.trackingNumber}</div>
                             :
                             <div></div>
                         }
@@ -69,16 +80,16 @@ function Tracking() {
                             {generateTimeline()}
                         </Timeline>
                         :
-                        <Form className="tracking-form" onFinish={submitTracking}>
+                        <Form className="tracking-form" onFinish={submitTracking} form={form}>
                             <Row gutter={[10, 15]}>
                                 <Col span={16}>
-                                    <Form.Item rules={[{pattern: /TRCK-\d\d\d-\d\d\d/, message: 'Invalid tracking number format.'}]} name="trackingNumber"><Input placeholder="Tracking Number"></Input></Form.Item>
+                                    <Form.Item rules={[{pattern: /TRCK-\d\d\d-\d\d\d/, message: 'Invalid tracking number.'}]} name="trackingNumber"><Input placeholder="Tracking Number"></Input></Form.Item>
                                 </Col>
                                 <Col span={2}>
                                     <Form.Item>
                                         <Button className="tracking-submit" htmlType="submit"> Track Delivery</Button>
                                     </Form.Item>
-                                    </Col>
+                                </Col>
                             </Row>
                         </Form>
                     }

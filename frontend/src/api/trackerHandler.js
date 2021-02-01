@@ -1,15 +1,13 @@
 export const getTracker = async(input) => {
-    console.log('abc');
     const response = await fetch('/tracking/' + input.trackingNumber, {
         credentials: "include"
     });
 
     const result = await response.json();
 
-    if (result === null) {
+    if (result.tracker === null) {
         return null;
     }
-
     //re-map status to JSONs
     const newstat = result.tracker.status.map((stat) => {
         return JSON.parse(stat);
