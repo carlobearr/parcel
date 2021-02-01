@@ -7,6 +7,7 @@ import BookDeliveryDate from '../components/bookDeliveryDate';
 import BookDeliveryFees from '../components/bookDeliveryFees';
 import DeliverySuccess from '../components/deliverySuccess';
 import { createDelivery } from '../api/deliveryHandler';
+import Weather from '../components/weather';
 
 function BookDelivery() {
     const [form] = Form.useForm();
@@ -56,9 +57,7 @@ function BookDelivery() {
                 Book a Delivery
             </div>
             <div className="contentWrapper">
-                <Row className="weather">
-                    WEATHER
-                </Row>
+                <Weather></Weather>
                 <Form layout="vertical" requiredMark={false} form={form} initialValues={{month: '1', day: '1', year: getYear()}} onFinish={submitDelivery}>
                     <Row className="detailContent" gutter = {[100,0]}>
                         <Col span={12}>

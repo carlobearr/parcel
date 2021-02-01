@@ -14,13 +14,15 @@ function Dashboard() {
 
             <Layout>
                 <Header className="dashboardheader"><div class="normal">Welcome Back,</div><div class="bold">Insert Name Here</div></Header>
-               
+                
                 <Content className="opaque">
-
-
+                <div className="dashboardcontainer">
                 <Weather></Weather>
+                
+                </div>
                 </Content>
-                <Content  className="dashboardcontainer">
+                
+                <Content className="dashboardcontainer">
                 <Row>
                     <Col span={6}>
                         <Row><div className="piechart"></div></Row>
