@@ -49,7 +49,7 @@ function UserHeader({name}) {
                             <Link to ="/dashboard" className="menuFont">DASHBOARD</Link>
                         </Menu.Item>
                         <Menu.Item className="menuFont">
-                            <Link to ="#" className="menuFont">TRANSACTION</Link>
+                            <Link to ="/transactions" className="menuFont">TRANSACTION</Link>
                         </Menu.Item>
                         <Menu.Item className="menuFont">
                             <Link to ="/waybills" className="menuFont">CREATE WAYBILL</Link>
