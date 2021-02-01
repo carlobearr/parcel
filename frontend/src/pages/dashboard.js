@@ -4,6 +4,7 @@ import React from 'react';
 import Weather from '../components/weather';
 import { Layout } from 'antd';
 import { Row, Col } from 'antd';
+import "../api/deliveryHandler";
 
 const { Header,Content } = Layout;
 
@@ -13,13 +14,15 @@ function Dashboard({isLoggedIn}){
         <div>
 
             <Layout>
-                <Header className="dashboardheader"><div class="normal">Welcome Back,</div><div class="bold">{isLoggedIn.name}</div></Header>
+                <Header className="dashboardheader">
+                    <div class="normal">Welcome Back,</div>
+                    <div class="bold">{isLoggedIn.name}</div>
+                </Header>
                 
                 <Content className="opaque">
-                <div className="dashboardcontainer">
-                <Weather></Weather>
-                
-                </div>
+                    <div className="dashboardcontainer">
+                        <Weather></Weather>
+                    </div>
                 </Content>
                 
                 <Content className="dashboardcontainer">

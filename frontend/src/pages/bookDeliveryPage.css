@@ -1,3 +1,4 @@
+
 .outerCircle {
     background-color: #00C8FF;
     border-radius: 50%;
@@ -39,10 +40,11 @@
 }
 
 .contentWrapper {
-    position: absolute;
+
     top: 18%;
-    left: 15%;
-    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
     height: 100%;
 }
 
@@ -277,3 +279,28 @@
     background-color: white;
     color: #00C8FF !important;
 }
+
+.opaque{
+    background: url("../cloud.png")no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.dashboardheader{
+    height: 93px;
+    left: 120px;
+    top: 154px;
+    background-color:  #00C8FF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    line-height: 54px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.normal{
+    font-weight: 300;
+}
+
