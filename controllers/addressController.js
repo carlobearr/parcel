@@ -51,7 +51,7 @@ exports.getAddressList = async(req, res) => {
 exports.getAddress = async(req, res) => {
     const name = req.params.addressName;
 
-    const address = await addressModel.findOne({ userId: req.session.user.gId, name });
+    const address = await addressModel.findOne({ userId: req.session.user.gId, name: name });
 
     if (address) {
         res.json({ address });

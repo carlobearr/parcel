@@ -1,0 +1,279 @@
+.outerCircle {
+    background-color: #00C8FF;
+    border-radius: 50%;
+    right: 5%;
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.innerCircle {
+    background-color: #00C8FF;
+    border-radius: 50%;
+    right: -60%;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+}
+
+.circleWrapper {
+    overflow: hidden;
+    position: relative;
+    top: -20%;
+}
+
+.wrapper {
+    height: 120vh;
+    width: 100%;
+    position: relative;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
+
+.contentWrapper {
+    position: absolute;
+    top: 18%;
+    left: 15%;
+    width: 70%;
+    height: 100%;
+}
+
+.weather {
+    position: relative;
+    border-radius: 25px;
+    background-color: white;
+    color: #00C8FF;
+    font-weight: normal;
+    top: 0%;
+    width: 100%;
+    height: 20%;
+    box-shadow: 0px 0px 8px -3px rgba(138, 131, 138, 1);
+    justify-content: center;
+    font-size: 72px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.detailContent {
+    position: relative;
+    height: 80%;
+}
+
+.addressWrapper {
+    position: relative;
+    height: 40%;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.addressContent {
+    padding: 5%;
+    background-color: white;
+    width: 100%;
+    margin-top: 5%;
+    box-shadow: 0px 0px 8px -3px rgba(138, 131, 138, 1);
+}
+
+.itemDetailsContent {
+    padding: 5%;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 8px -3px rgba(138, 131, 138, 1);
+}
+
+.ant-timeline-item {
+    padding: 0;
+}
+
+.ant-timeline-item-content {
+    min-height: 0px !important;
+    padding: 0;
+    margin: 10;
+}
+
+.smallFontSize {
+    font-size: 13px;
+}
+
+.mediumFontSize {
+    font-size: 18px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.borderTop {
+    border-top: 1px solid #00C8FF;
+}
+
+.addButton {
+    position: absolute;
+    color: white;
+    background-color: #00C8FF;
+    right: 0;
+}
+
+.addButton:hover, .addButton:focus {
+    color: white !important;
+    background-color: #00C8FF !important;
+}
+
+
+.itemWrapper {
+    position: relative;
+    height: 55%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #00C8FF;
+}
+
+.paddingBottom {
+    padding-bottom: 5%;
+}
+
+.paddingRight {
+    padding-right: 22px;
+}
+
+.ant-checkbox-wrapper {
+    color: #00C8FF;
+}
+
+.ant-checkbox-inner {
+    background-color: #E3EFF9;
+}
+
+.dateWrapper {
+    position: relative;
+    height: 25%;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.feeWrapper {
+    position: relative;
+    height: 50%;
+    width: 100%;
+}
+
+.bookButtonWrapper {
+    position: relative;
+    height: 20%;
+    width: 100%;
+}
+
+.dateContent {
+    color: #00C8FF;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    padding: 5%;
+    box-shadow: 0px 0px 8px -3px rgba(138, 131, 138, 1);
+    margin-top: 5%;
+    z-index: 1;
+}
+
+.ant-form-item-label label {
+    color: #00C8FF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.ant-form label {
+    font-size: 13px;
+}
+
+.ant-form-item {
+    margin: 0;
+}
+
+.paddingTop {
+    padding-top: 30px;
+}
+
+.feeContent {
+    height: 100%;
+    width: 100%;
+    color: #00C8FF;
+    font-family: 'Poppins', sans-serif;
+    padding: 5%;
+    box-shadow: 0px 0px 8px -3px rgba(138, 131, 138, 1);
+    background-color: white;
+    margin-top: 5%;
+    overflow: scroll;
+}
+
+.ant-typography {
+    color: #00C8FF;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bookButtonContent {
+    height: 100%;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bookButton {
+    background-color: #00C8FF;
+    color: white;
+    border-radius: 25px;
+    font-weight: normal;
+    width: 50%;
+    margin-bottom: 10%;
+}
+
+.ant-form-item-explain,
+.ant-form-item-extra {
+    font-size: 10px;
+}
+
+.ant-form-item-has-error .ant-input,
+.ant-form-item-has-error .ant-input-affix-wrapper,
+.ant-form-item-has-error .ant-input:hover,
+.ant-form-item-has-error .ant-input-affix-wrapper:hover {
+    background-color: #E3EFF9;
+}
+
+.ant-row .ant-form-item {
+    width: 100%;
+}
+
+.parcelWrapper {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+.maxWidth {
+    padding-top: 8px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #00C8FF;
+}
+
+.deliveryAddress {
+    background: none;
+    border: none;
+    color: #00C8FF;
+    font-family: 'Poppins', sans-serif;
+}
+.ant-input[disabled] {
+    background-color: white;
+    color: #00C8FF !important;
+}

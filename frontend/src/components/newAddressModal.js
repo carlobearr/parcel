@@ -1,24 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Button, Modal, Input, Form } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
 import { newAddress } from "../api/addressHandler";
 
 function NewAddressModal(props) {
     const [form] = Form.useForm();
-    const [isModalVisible1, setIsModalVisible1] = useState(false);
-
-    const showModal1 = () => {
-        setIsModalVisible1(true);
-        form.resetFields();
-    };
     
     const handleCancel1 = () => {
-        setIsModalVisible1(false);
+        props.setIsModalVisible1(false);
     };
 
     const handleOk1 = () => {
         if (document.getElementById('addressName').value !== "" && document.getElementById('completeAddress').value !== "") {
-            setIsModalVisible1(false);
+            props.setIsModalVisible1(false);
             props.setupdateAddress(true);
             props.setAddressList(false);
         }
@@ -28,16 +21,14 @@ function NewAddressModal(props) {
 
     return (
         <div>
-            <Button id="addAddressButton" className="addAddressButton" type="text" icon={<PlusOutlined />} onClick={showModal1}/>
-
             <Modal
                 centered
                 title="ADD ADDRESS"
-                visible={isModalVisible1}
+                visible={props.isModalVisible1}
                 onOk={handleOk1}
                 onCancel={handleCancel1}
                 footer={[
-                    <Button id="addAddressModalButton" key="submit" type="primary" shape="round" className="addButton" onClick={handleOk1}>
+                    <Button id="addAddressModalButton" key="submit" type="primary" shape="round" className="addressAddButton" onClick={handleOk1}>
                       ADD ADDRESS
                     </Button>,
                   ]}

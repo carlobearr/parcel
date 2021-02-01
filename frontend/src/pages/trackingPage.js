@@ -1,43 +1,98 @@
-import React from 'react';
-import { Row, Col, Timeline } from 'antd';
+import React, {useState} from 'react';
+import { Row, Col, Timeline, Button, Form, Input } from 'antd';
 import './trackingPage.css';
+import {getTracker} from '../api/trackerHandler';
 
 function Tracking() {
 
+    const [tracking, setTracking] = useState(null);
+    const [form] = Form.useForm();
+    const submitTracking = (tracker) => {
+        async function get() {
+            const result = await getTracker(tracker);
+            if(result) {
+                setTracking(result);
+            }
+        }
+
+        get();
+    }
+
+    const generateTimeline = () => {
+        var timeline = [];
+
+        tracking.status.forEach((stat,i) => {
+            var date = stat.date;
+
+            date = date.substr(date.indexOf(' ') + 1);
+            const month = date.substr(0, date.indexOf(' '));
+            
+            date = date.substr(date.indexOf(' ') + 1);
+            const day = date.substr(0, date.indexOf(' '));
+            
+            date = date.substr(date.indexOf(' ') + 1);
+            const year = date.substr(0, date.indexOf(' '));
+
+            date = date.substr(date.indexOf(' ') + 1);
+            const time = date.substr(0, date.indexOf(' '));
+
+            timeline.push(<Timeline.Item label={stat.title} color="blue" key={i}>
+                        <p className="tracking-date">{month.toUpperCase()} {year} {day}</p>
+                        <p>{time}</p>
+                    </Timeline.Item>);
+        });
+
+        if(timeline.length < 6)  {
+            timeline.push(  <Timeline.Item label="Waiting for next update" color="gray" key={timeline.length}>
+                                <p className="tracking-date">Next Up</p>
+                                <p>Waiting</p>
+                            </Timeline.Item>)
+        }
+        return timeline;
+    }
+
+    const trackAgain = () => {
+        document.getElementsByClassName('tracking-number')[0].innerHTML = 'Track Again';
+    }
+
+    const showTracking = () => {
+        document.getElementsByClassName('tracking-number')[0].innerHTML = tracking.trackingNumber;
+    }
+
+    const resetTracking = () => {
+        setTracking(null);
+        form.resetFields(['trackingNumber']);
+    }
     return ( 
         <div> 
             <Row> 
                 <Col span={12}>
                     <div className="tracking-header">                        
                         <div className="tracking-title"> Tracking </div>
-                        <div className="tracking-number"> Tracking Number </div>
-                    </div>   
-                    <Timeline mode="right">
-                        <Timeline.Item label="Status is here" color="blue">
-                            <p className="tracking-date">MM YY DD</p>
-                            <p>HH MM SS</p>
-                        </Timeline.Item>
-                        <Timeline.Item label="Status is here" color="blue">
-                            <p className="tracking-date">MM YY DD</p>
-                            <p>HH MM SS</p>
-                        </Timeline.Item>
-                        <Timeline.Item label="Status is here" color="blue">
-                            <p className="tracking-date">MM YY DD</p>
-                            <p>HH MM SS</p>
-                        </Timeline.Item>
-                        <Timeline.Item label="Status is here" color="blue">
-                            <p className="tracking-date">MM YY DD</p>
-                            <p>HH MM SS</p>
-                        </Timeline.Item>
-                        <Timeline.Item label="Status is here" color="gray">
-                            <p className="tracking-date">MM YY DD</p>
-                            <p>HH MM SS</p>
-                        </Timeline.Item>
-                        <Timeline.Item label="Status is here" color="gray">
-                            <p className="tracking-date">MM YY DD</p>
-                            <p>HH MM SS</p>
-                        </Timeline.Item>
-                    </Timeline>
+                        {tracking !== null ?
+                            <div className="tracking-number" onMouseOver={trackAgain} onMouseLeave={showTracking} onClick={resetTracking}>{tracking.trackingNumber}</div>
+                            :
+                            <div></div>
+                        }
+                    </div>
+                    {tracking !== null ?
+                        <Timeline mode="right">
+                            {generateTimeline()}
+                        </Timeline>
+                        :
+                        <Form className="tracking-form" onFinish={submitTracking} form={form}>
+                            <Row gutter={[10, 15]}>
+                                <Col span={16}>
+                                    <Form.Item rules={[{pattern: /TRCK-\d\d\d-\d\d\d/, message: 'Invalid tracking number.'}]} name="trackingNumber"><Input placeholder="Tracking Number"></Input></Form.Item>
+                                </Col>
+                                <Col span={2}>
+                                    <Form.Item>
+                                        <Button className="tracking-submit" htmlType="submit"> Track Delivery</Button>
+                                    </Form.Item>
+                                </Col>
+                            </Row>
+                        </Form>
+                    }
                 </Col>
                 <Col span={12} className="tracking-side">
                 </Col>

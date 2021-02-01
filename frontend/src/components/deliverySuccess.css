@@ -1,0 +1,56 @@
+.ant-modal-footer {
+    border-top: 0px;
+}
+.modalWrapper {
+    color: #00C8FF;
+}
+.trackNumber {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+}
+.trackMessage {
+    font-size: 15px;
+}
+.bookButton {
+    background-color: #00C8FF;
+    color: white;
+    border-radius: 32px;
+    width: 60%;
+    margin-top: 4%;
+    margin-top: 20%;
+    font-family: 'Poppins', 'sans-serif';
+}
+.trackButton {
+    background-color: #00C8FF;
+    color: white;
+    border-radius: 10px;
+    width: 50%;
+    margin-top: 4%;
+    font-size: 15px;
+}
+.trackNumberPaddingTop {
+    padding-top: 12%;
+}
+.trackMessagePaddingBottom {
+    padding-bottom: 5%;
+}
+.trackParcelPaddingBottom {
+    padding-bottom: 10%;
+}
+.backHomeButton {
+    background-color: white;
+    color: #00C8FF;
+    border: none;
+    width: 50%;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 15%;
+}
+.ant-modal-content {
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px 1px rgb(77, 73, 73);
+}
+.ant-modal-close {
+    color: #00C8FF;
+}

@@ -1,0 +1,36 @@
+.ant-modal-header {
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.ant-modal-title {
+    color: #00C8FF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+.ant-modal-close {
+    color: #00C8FF;
+}
+.useAddressButton {
+    background-color: #00C8FF;
+    color: white;
+    border-radius: 14px;
+    width: 30%;
+    margin-top: 4%;
+    font-size: 15px;
+    font-weight: 500;
+}
+.ant-modal-header {
+    border-bottom: 2px solid #00C8FF;
+}
+.addSenderPadding {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+.ant-modal-content {
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px 1px rgb(77, 73, 73);
+}
+.ant-form-item-explain, .ant-form-item-extra {
+    font-family: 'Poppins', sans-serif;
+}

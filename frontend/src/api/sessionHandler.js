@@ -8,7 +8,7 @@ export const setSignIn = async(googleUser) => {
         body: JSON.stringify({ token: googleUser.getAuthResponse().id_token })
     });
 
-    window.location.href = (await response.json()).url;
+    return await response.json();
 };
 
 export const getSessionUser = async() => {

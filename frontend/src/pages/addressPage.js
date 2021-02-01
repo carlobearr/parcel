@@ -2,11 +2,13 @@ import "antd/dist/antd.css";
 import "./addressPage.css";
 import React, {useState, useEffect} from 'react';
 import { Row, Col, Button, Modal, Input, Form, Spin } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import AddressContainer from '../components/addressContainer';
 import { getAddressList, getAddress, editAddress, deleteAddress } from "../api/addressHandler";
 import NewAddressModal from '../components/newAddressModal';
 
 function AddressPage() {
+    const [isModalVisible1, setIsModalVisible1] = useState(false);
     const [isModalVisible2, setIsModalVisible2] = useState(false);
     const [addressList, setAddressList] = useState(false);  //set initial to false for loading modal
     const [updateAddress, setupdateAddress] = useState(false);
@@ -20,9 +22,13 @@ function AddressPage() {
         fetchAddress();
     }, [updateAddress]);
 
+    const showModal1 = () => {
+        setIsModalVisible1(true);
+    };
+    
     const showModal2 = async(event) => {
-        setIsModalVisible2(true);
         const edit = await getAddress(event);
+        setIsModalVisible2(true);
         setCurrentEdit(edit);
     };
     
@@ -59,42 +65,41 @@ function AddressPage() {
         <div className="wrapperWholePage">
             <div className="container">
                 <Row>
-                    <Col span={23} className="title">
+                    <Col span={23}>
                         <p className="myAddresses">My Addresses</p>
                     </Col>
-                    <Col span={1} className="title">
-                        <NewAddressModal setupdateAddress={setupdateAddress} setAddressList={setAddressList}/>
+                    <Col span={1}>
+                        <Button id="addAddressButton" className="addAddressButton" type="text" icon={<PlusOutlined />} onClick={showModal1}/>
                     </Col>
                 </Row>
-                <div>
-                    <Row>
-                        { addressList !== false ?
-                              addressList !== null ?  
-                                addressList.map((addressDetails, i) => {     
-                                    return <AddressContainer {...addressDetails} showModal2={showModal2} key={i} />
-                                })
-                                :
-                                <div className="spin details">
-                                  <p className="addressName">No addresses saved.</p>
-                                  <p>Click the '+' icon to create a new one!</p>
-                                </div>
+                <Row>
+                    { addressList !== false ?
+                            addressList !== null ?  
+                            addressList.map((addressDetails, i) => {     
+                                return <AddressContainer {...addressDetails} showModal2={showModal2} key={i} />
+                            })
                             :
-                            <Spin className="spin" size="large"/>
-                        }
-                    </Row>
-                </div>
+                            <div className="spin details">
+                                <p className="addressName">No addresses saved.</p>
+                                <p>Click the '+' icon to create a new one!</p>
+                            </div>
+                        :
+                        <Spin className="spin" size="large"/>
+                    }
+                </Row>
             </div>
-
+            <NewAddressModal setupdateAddress={setupdateAddress} setAddressList={setAddressList} isModalVisible1={isModalVisible1} setIsModalVisible1={setIsModalVisible1}/>
 
             <Modal
+                centered
                 title="EDIT ADDRESS"
                 visible={isModalVisible2}
                 onCancel={handleCloseEdit}
                 footer={[
-                    <Button id="deleteAddressModalButton" key="delete" type="primary" shape="round" className="addButton" onClick={handleDelete}>
+                    <Button id="deleteAddressModalButton" key="delete" type="primary" shape="round" className="addressAddButton" onClick={handleDelete}>
                       DELETE ADDRESS
                     </Button>,
-                    <Button id="editAddressModalButton" key="edit" type="primary" shape="round" className="addButton" onClick={handleEdit}>
+                    <Button id="editAddressModalButton" key="edit" type="primary" shape="round" className="addressAddButton" onClick={handleEdit}>
                     EDIT ADDRESS
                     </Button>
                   ]}

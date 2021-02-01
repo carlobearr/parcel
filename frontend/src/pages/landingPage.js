@@ -6,7 +6,7 @@ import { CaretDownOutlined } from '@ant-design/icons';
 import GoogleSignInButton from '../components/googleSignInButton';
 const { Text } = Typography;
 
-function Landing() {
+function Landing(props) {
     return ( 
         <div className="wrapperWholePage">
             <div id="top" className="wrapper">
@@ -14,16 +14,16 @@ function Landing() {
                     <Col className="maxHeight" span={10}>
                         <div className="headerPadding1">
                             <Text className="promotionalHeader" style={{color:"#00C8FF"}}>
-                                    Insert promotional header text here.
+                                Get your parcels delivered in a quick, safe, and efficient way
                             </Text>
                         </div>
                         <div className="subheaderPadding1">
                             <Text className="promotionalSubheader" style={{color:"#00C8FF"}}>
-                            Insert subheader promotional text here. Insert subheader promotional text here.Insert subheader promotional text here.Insert subheader promotional text here.
+                                Pelican Express  has dedicated drivers that bring your packages to wherever you want them to be at.
                             </Text>
                         </div>
                         <div className="buttonPadding">
-                            <GoogleSignInButton></GoogleSignInButton>
+                            <GoogleSignInButton {...props}></GoogleSignInButton>
                         </div>
                     </Col>
                     <Col className="maxHeight"span={14}>
@@ -42,12 +42,12 @@ function Landing() {
                 <Row >
                     <Col span={24} className="headerPadding2">
                         <Text className="promotionalHeader" style={{color: "#FFFFFF"}}>
-                            Insert header text here.
+                            Deliver your parcels with Pelican Express with these 3 steps
                         </Text>
                     </Col>
                     <Col span={24} className="subheaderPadding2">
                     <Text className="promotionalSubheader" style={{color: "#FFFFFF"}}>
-                        Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                        
                         </Text>
                     </Col>
                 </Row>
@@ -55,30 +55,30 @@ function Landing() {
                     <Col span={8} className="boxPadding">
                         <div className="box1">
                             <Row className="avatarMargin">
-                                <Avatar size={80} className="blueIcon"></Avatar>
+                                <Avatar size={150} className="blueIcon" src={process.env.PUBLIC_URL+ '/login.png'}></Avatar>
                             </Row>
                             <Row className="boxSubheader1">
-                                Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                                Login your account
                             </Row>
                         </div>
                     </Col>
                     <Col span={8} className="boxPadding">
                         <div className="box1">
                             <Row className="avatarMargin">
-                                <Avatar size={80} className="blueIcon"></Avatar>
+                                <Avatar size={150} className="blueIcon" src={process.env.PUBLIC_URL+ '/schedule.png'}></Avatar>
                             </Row>
                             <Row className="boxSubheader1">
-                                Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                                Schedule a Pick-up
                             </Row>
                         </div>
                     </Col>
                     <Col span={8} className="boxPadding">
                         <div className="box1">
                             <Row className="avatarMargin">
-                                <Avatar size={80} className="blueIcon"></Avatar>
+                                <Avatar size={150} className="blueIcon" src={process.env.PUBLIC_URL+ '/wait.png'}></Avatar>
                             </Row>
                             <Row className="boxSubheader1">
-                                Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                                Wait for Pick-up
                             </Row>
                         </div>
                     </Col>
@@ -95,12 +95,12 @@ function Landing() {
                 <Row >
                     <Col span={24} className="headerPadding2">
                         <Text className="promotionalHeader" style={{color: "#00C8FF"}}>
-                            Insert header text here.
+                            Here are some words from our customers
                         </Text>
                     </Col>
                     <Col span={24} className="subheaderPadding2">
                     <Text className="promotionalSubheader" style={{color: "#00C8FF"}}>
-                        Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                        
                         </Text>
                     </Col>
                 </Row>
@@ -108,40 +108,52 @@ function Landing() {
                     <Col span={6} className="boxPadding">
                         <div className="box2">
                             <Row className="avatarMargin">
-                                <Avatar size={80} className="whiteIcon"></Avatar>
+                                <Avatar size={100} className="whiteIcon" src={process.env.PUBLIC_URL+ '/martin.png'}></Avatar>
                             </Row>
                             <Row className="boxSubheader2">
-                                Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                                Martin Sanchez
+                            </Row>
+                            <Row className="boxSubheader2">
+                                Their fast and efficient service, responsible riders, and great after sales service.
                             </Row>
                         </div>
                     </Col>
                     <Col span={6} className="boxPadding">
                         <div className="box2">
                             <Row className="avatarMargin">
-                                <Avatar size={80} className="whiteIcon"></Avatar>
+                                <Avatar size={100} className="whiteIcon" src={process.env.PUBLIC_URL+ '/carlo.png'}></Avatar>
                             </Row>
                             <Row className="boxSubheader2">
-                                Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                                Carlo Santos
+                            </Row>
+                            <Row className="boxSubheader2">
+                                Can’t recommend this service enough, reliable and easy to use. Always my first choice.
                             </Row>
                         </div>
                     </Col>
                     <Col span={6} className="boxPadding">
                         <div className="box2">
                             <Row className="avatarMargin">
-                                <Avatar size={80} className="whiteIcon"></Avatar>
+                                <Avatar size={100} className="whiteIcon" src={process.env.PUBLIC_URL+ '/bryan.png'}></Avatar>
                             </Row>
                             <Row className="boxSubheader2">
-                                Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                                Bryan Tio
+                            </Row>
+                            <Row className="boxSubheader2">
+                                Great service always. Easy to deal with as well.
                             </Row>
                         </div>
                     </Col>
                     <Col span={6} className="boxPadding">
                         <div className="box2">
                             <Row className="avatarMargin">
-                                <Avatar size={80} className="whiteIcon"></Avatar>
+                                <Avatar size={100} className="whiteIcon" src={process.env.PUBLIC_URL+ '/howard.png'}></Avatar>
                             </Row>
                             <Row className="boxSubheader2">
-                                Insert subheader text here. Insert text here. Insert subheader text here. Insert subheader text here.
+                                Howard Montecillo
+                            </Row>
+                            <Row className="boxSubheader2">
+                                10/10. Never fails me. Would try again.
                             </Row>
                         </div>
                     </Col>
@@ -154,10 +166,15 @@ function Landing() {
                     </Col>
                 </Row>
             </div>
-            <div id="menu3" className="wrapper">
+            <div id="menu3" className="wrapper4">
                 <Row>
-                    <Col span={24} className="page4">
-                        SOMETHING
+                    <Col span={24} className="avatarMargin">
+                        <Row className="page4">
+                            What are you waiting for?
+                        </Row>
+                        <Row className="page4">
+                            Try our services now!
+                        </Row>
                     </Col>
                 </Row>
             </div>
