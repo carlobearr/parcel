@@ -1,19 +1,19 @@
 import "antd/dist/antd.css";
-
 import "./dashboard.css";
 import React from 'react';
 import Weather from '../components/weather';
 import { Layout } from 'antd';
 import { Row, Col } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
 
-function Dashboard() {
+const { Header,Content } = Layout;
+
+function Dashboard({isLoggedIn}){
 
     return ( 
         <div>
 
             <Layout>
-                <Header className="dashboardheader"><div class="normal">Welcome Back,</div><div class="bold">Insert Name Here</div></Header>
+                <Header className="dashboardheader"><div class="normal">Welcome Back,</div><div class="bold">{isLoggedIn.name}</div></Header>
                 
                 <Content className="opaque">
                 <div className="dashboardcontainer">
@@ -78,3 +78,4 @@ function FailedDeliveries(){
         <div>4</div>
     );
 };
+
