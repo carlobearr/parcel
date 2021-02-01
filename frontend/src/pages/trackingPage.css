@@ -61,6 +61,7 @@
     padding: 5px;
     min-width: 20vw;
     border-radius: 50px 50px 50px 50px;
+    cursor: pointer;
     /*Text Options*/
     color: #00C8FF;
     font-size: 18px;
@@ -72,4 +73,21 @@
     display: block;
     background-color: #00C8FF;
     border-radius: 400px 0 0 400px;
+}
+
+.tracking-submit {
+    border-radius: 20px 20px 20px 20px !important;
+    background: #00C8FF !important;
+    box-shadow: none !important;
+    width: 150px;
+    color: white !important;
+    font-family: 'Roboto' !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+}
+
+.tracking-form {
+    display: inline-block;
+    width: auto;
+    margin-left: 100px;
 }
