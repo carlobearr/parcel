@@ -1,40 +1,42 @@
-import { Row, Col, Typography, Button } from 'antd';
-const { Paragraph } = Typography;
+import React, {useState} from 'react';
+import { Row, Col, Button } from 'antd';
 
 function BookDeliveryFees(props) {
+
     return (
         <div>
             <Row className="feeWrapper">
                 <Row className="feeContent">
                     <Col span={24}>
-                        FEES AND BREAKDOWN
-                    </Col>
-                    <Col span={16}>
-                        <Typography>
-                            <Paragraph>
-                                ~~~~~~~~~~~~~~~~~~~~~
-                            </Paragraph>
-                            <Paragraph>
-                                ~~~~~~~~~~~~~~~~~~~~~~~~~~
-                            </Paragraph>
-                        </Typography>
-                    </Col>
-                    <Col span={8}>
-                        <Paragraph>
-                            ~~~~~~~~~~~~~
-                        </Paragraph>
-                        <Paragraph>
-                            ~~~~~~~~~~
-                        </Paragraph>
-                        <Paragraph>
-                            ~~~~
-                        </Paragraph>
-                        <Paragraph>
-                            ~~~~
-                        </Paragraph>
-                        <Paragraph>
-                            ₱ ~~~~
-                        </Paragraph>
+                        <Row>
+                            <Col span={24}>
+                                FEES AND BREAKDOWN
+                            </Col>
+                        </Row>
+                        <Row className="feeMargin">
+                            <Col span={15}>
+                                <Row>
+                                    Distance
+                                </Row>
+                                <Row>
+                                    Size
+                                </Row>
+                                <Row className="borderTop">
+                                    Total
+                                </Row>
+                            </Col>
+                            <Col span={9}>
+                                <Row>
+                                    {props.distance}
+                                </Row>
+                                <Row>
+                                    {props.value}
+                                </Row>
+                                <Row className="borderTop">
+                                    {props.totalPrice}
+                                </Row>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Row>

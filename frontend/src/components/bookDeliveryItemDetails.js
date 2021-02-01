@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import { Row, Col, Input, Checkbox, Form, Radio } from 'antd';
 
-function BookDeliveryItemDetails() {
-
-    const [value, setValue] = useState('');
+function BookDeliveryItemDetails(props) {
     const onChange = e => {
-        setValue(e.target.value);
+        props.setValue(e.target.value);
+        props.setTotalPrice(props.distance + e.target.value);
       };
+
+    const codOption = e => {
+        //cod option true?
+    }
     
     return (
         <div>
@@ -25,27 +28,27 @@ function BookDeliveryItemDetails() {
                         </Row>
                         <Row className="paddingBottom">
                             <Form.Item rules={[{ required: true, message: 'Please select a parcel size' }]} label="Parcel Size" name="parcelSize">
-                                    <Radio.Group onChange={onChange} value={value}>
+                                    <Radio.Group onChange={onChange} value={props.value}>
                                         <Row>
                                             <Col span={12}>
-                                                <Radio.Button value={'s'} className="maxWidth">
+                                                <Radio.Button value={20} className="maxWidth">
                                                     Small
                                                 </Radio.Button>
                                             </Col>
                                             <Col span={12}>
-                                            <Radio.Button value={"m"} className="maxWidth">
+                                            <Radio.Button value={30} className="maxWidth">
                                                 Medium
                                             </Radio.Button>
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col span={12}>
-                                                <Radio.Button value={"l"} className="maxWidth">
+                                                <Radio.Button value={40} className="maxWidth">
                                                     Large
                                                 </Radio.Button>
                                             </Col>
                                             <Col span={12}>
-                                                <Radio.Button value={"b"} className="maxWidth">
+                                                <Radio.Button value={50} className="maxWidth">
                                                     Box
                                                 </Radio.Button>
                                             </Col>
@@ -58,7 +61,7 @@ function BookDeliveryItemDetails() {
                         <Row className="paddingBottom ">
                             <Col span={24}>
                                 <Form.Item name="CODOption" valuePropName="checked">
-                                    <Checkbox onChange={onChange}>
+                                    <Checkbox value={true} onChange={codOption}>
                                         Cash on Delivery Option
                                     </Checkbox>
                                 </Form.Item>

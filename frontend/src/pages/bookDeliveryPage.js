@@ -14,6 +14,9 @@ function BookDelivery() {
     const [sendColor, setsendColor] = useState('gray');
     const [recColor, setrecColor] = useState('gray');
     const [trackingNum, setTrackingNum] = useState(null);
+    const [distance, setDistance] = useState(50);
+    const [value, setValue] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(distance);
     function getYear() {
         var d = new Date();
         d = d.getFullYear();
@@ -63,11 +66,11 @@ function BookDelivery() {
                     <Row className="detailContent" gutter = {[100,0]}>
                         <Col span={12}>
                             <BookDeliveryAddress sendColor={sendColor} setsendColor={setsendColor} recColor={recColor} setrecColor={setrecColor} form={form}/>
-                            <BookDeliveryItemDetails/>
+                            <BookDeliveryItemDetails value={value} setValue={setValue} distance={distance} setTotalPrice={setTotalPrice}/>
                         </Col>
                         <Col span={12}>
                             <BookDeliveryDate form={form}/>
-                            <BookDeliveryFees />
+                            <BookDeliveryFees value={value} distance={distance} totalPrice={totalPrice}/>
                         </Col>
                     </Row>
                 </Form>

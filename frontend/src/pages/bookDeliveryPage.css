@@ -162,7 +162,7 @@
 
 .feeWrapper {
     position: relative;
-    height: 50%;
+    height: 250px;
     width: 100%;
 }
 
@@ -276,4 +276,8 @@
 .ant-input[disabled] {
     background-color: white;
     color: #00C8FF !important;
+}
+
+.feeMargin {
+    margin-top: 15px;
 }
