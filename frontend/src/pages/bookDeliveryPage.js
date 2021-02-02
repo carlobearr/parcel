@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Row, Col, Form } from 'antd';
+import { Row, Col, Form, Layout } from 'antd';
 import './bookDeliveryPage.css';
 import BookDeliveryAddress from '../components/bookDeliveryAddress';
 import BookDeliveryItemDetails from '../components/bookDeliveryItemDetails'
@@ -7,6 +7,9 @@ import BookDeliveryDate from '../components/bookDeliveryDate';
 import BookDeliveryFees from '../components/bookDeliveryFees';
 import DeliverySuccess from '../components/deliverySuccess';
 import { createDelivery } from '../api/deliveryHandler';
+import Weather from '../components/weather';
+
+const { Header,Content } = Layout;
 
 function BookDelivery() {
     const [form] = Form.useForm();
@@ -37,28 +40,19 @@ function BookDelivery() {
     
     return ( 
         <div className="wrapper">
-            <div className="circleWrapper">
-                <div className="outerCircle">
-                    <div className="innerCircle">
-                        <div className="innerCircle">
-                            <div className="innerCircle">
-                                <div className="innerCircle">
-                                    <div className="innerCircle">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <Layout>
+                <Header className="dashboardheader">
+                    <div class="normal">Book a Delivery</div>
+                </Header>
+                
+                <Content className="opaque">
+                    <div className="dashboardcontainer">
+                        <Weather></Weather>
                     </div>
-                </div>
-            </div>
+                </Content>
 
-            <div className="title">
-                Book a Delivery
-            </div>
+  
             <div className="contentWrapper">
-                <Row className="weather">
-                    WEATHER
-                </Row>
                 <Form layout="vertical" requiredMark={false} form={form} initialValues={{month: '1', day: '1', year: getYear()}} onFinish={submitDelivery}>
                     <Row className="detailContent" gutter = {[100,0]}>
                         <Col span={12}>
@@ -73,6 +67,8 @@ function BookDelivery() {
                 </Form>
             </div>
             <DeliverySuccess trackingNum={trackingNum} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible}/>
+
+        </Layout>
         </div>
     );
 };

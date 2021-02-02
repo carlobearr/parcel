@@ -1,6 +1,7 @@
 const deliveryModel = require('../models/Delivery');
 const addressModel = require('../models/Address');
 const waybillModel = require('../models/Waybill');
+const trackerModel = require('../models/Tracker');
 
 //converts json values to database model format
 async function databasify(deliveryDetails, userId) {
@@ -49,7 +50,14 @@ async function databasify(deliveryDetails, userId) {
         return count;
     }
 
+    //final tracking number
     deliveryDetails['trackingNumber'] = 'TRCK-' + track1 + '-' + track2();
+
+    //create tracker
+    const initialTrack = { title: 'Delivery Accepted', date: date.toString() };
+    const tracker = new trackerModel({ trackingNumber: deliveryDetails.trackingNumber, status: [JSON.stringify(initialTrack)] });
+    tracker.save();
+
     //add itemPhoto here
 
     return deliveryDetails;
