@@ -106,3 +106,7 @@ body    {overflow-y:scroll;}
     font-weight: 600;
     background-color:  rgba(138, 131, 138, 0);
 }
+
+.ant-layout {
+    height: calc(100vh - 66px) !important;
+}

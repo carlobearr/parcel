@@ -45,11 +45,12 @@
     display: inline-block;
     margin-bottom: 50px;
     padding-right: 20px;
-    width: 25vw;
+    width: 20vw;
     /*Text options*/
     color: #00C8FF;
-    font-size: 72px;
+    font-size: 48px;
     text-align: right;
+    font-weight: 700;
 }
 
 .tracking-number {
@@ -70,9 +71,9 @@
 
 .tracking-side {
     /*Display options*/
-    display: block;
     background-color: #00C8FF;
-    border-radius: 400px 0 0 400px;
+    border-radius: 370px 0 0 370px;
+    height: calc(100vh - 66px);
 }
 
 .tracking-submit {
