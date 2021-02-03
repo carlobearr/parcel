@@ -42,7 +42,7 @@ function BookDelivery() {
         <div className="wrapper">
             <Layout>
                 <Header className="dashboardheader">
-                    <div class="normal">Book a Delivery</div>
+                    <div class="title">Book a Delivery</div>
                 </Header>
                 
                 <Content className="opaque">
