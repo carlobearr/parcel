@@ -7,7 +7,7 @@
     position: relative;
     height: calc(100vh - 66px) !important;
     background-color: white;
-    margin-top: 66px;
+    margin-top: 70px;
     margin-bottom: -66px;
 }
 
@@ -156,22 +156,25 @@
     font-weight: 600;
     color: #00C8FF;
 }
+
 .landingPicture {
     position: absolute;
     bottom: 0px;
     right: 0px;
 }
+
 .bottomCenter1 {
-    position:absolute;
-    bottom:10%;
-    right:25%;
-    left:25%;
+    position: absolute;
+    bottom: 10%;
+    right: 25%;
+    left: 25%;
     z-index: 2;
 }
+
 .bottomCenter2 {
-    position:absolute;
-    bottom:10px;
-    right:25%;
-    left:25%;
+    position: absolute;
+    bottom: 10px;
+    right: 25%;
+    left: 25%;
     z-index: 2;
 }

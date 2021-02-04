@@ -23,7 +23,7 @@ function WaybillPage() {
     }, [waybillList, updateList]);
 
     return (
-        <div className="wrapperWholePage">
+        <div className="wrapper">
             <div className="container">
                 <Row>
                     <Col span={23}>

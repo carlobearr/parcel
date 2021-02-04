@@ -39,8 +39,7 @@ function Dashboard({isLoggedIn}){
         getStats();
     }, [total]);
     return ( 
-        <div>
-
+        <div className="wrapper">
                 <div className="dashboardheader">
                     <div className="normal">Welcome Back,</div>
                     <div className="bold">{isLoggedIn.name}</div>

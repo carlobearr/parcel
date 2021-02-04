@@ -1,42 +1,42 @@
-body    {overflow-y:scroll;}
-.dashboardheader{
-    height: 93px;
-    left: 120px;
-    top: 154px;
-    background-color:  #00C8FF;
+body {
+    overflow-y: scroll;
+}
+
+.dashboardheader {
+    padding-left: 100px;
+    background-color: #00C8FF;
     font-family: 'Poppins', sans-serif;
     font-size: 36px;
     line-height: 54px;
     display: flex;
     align-items: center;
     text-align: center;
-
     color: #FFFFFF;
 }
 
-.dashboardcontainer{
+.dashboardcontainer {
     position: relative;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 1%;
     color: #00C8FF;
 }
-.normal{
+
+.normal {
     font-weight: 300;
 }
-.bold{
+
+.bold {
     margin-left: 0.5%;
     font-weight: 600;
 }
 
-.opaque{
-
+.opaque {
     background: url("../cloud.png")no-repeat center center;
     background-size: 100% 100%;
-
 }
 
-.piechart{
+.piechart {
     width: 100%;
     padding-top: 100%;
     background-color: #00C8FF;
@@ -48,7 +48,6 @@ body    {overflow-y:scroll;}
     position: relative;
     border-radius: 25px;
     background-color: white;
-
     font-weight: normal;
     top: 0%;
     width: 80%;
@@ -63,7 +62,6 @@ body    {overflow-y:scroll;}
     padding-left: 1%;
     padding-right: 1%;
 }
-
 
 .statsgraph {
     position: relative;
@@ -84,27 +82,27 @@ body    {overflow-y:scroll;}
     text-align: center;
 }
 
-.title{
+.title {
     color: #00C8FF;
 }
 
-.statnum{
+.statnum {
     font-size: xx-large;
     margin-bottom: -20px;
-    font-weight:800;
+    font-weight: 800;
 }
 
-.centered{
+.centered {
     margin-inline: auto;
 }
 
-.bodyheader{
+.bodyheader {
     margin-inline-start: 5%;
     margin-bottom: 1%;
     margin-top: 1%;
     font-size: large;
     font-weight: 600;
-    background-color:  rgba(138, 131, 138, 0);
+    background-color: rgba(138, 131, 138, 0);
 }
 
 .ant-layout {
