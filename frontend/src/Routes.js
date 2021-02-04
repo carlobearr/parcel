@@ -17,24 +17,25 @@ import { Redirect } from 'react-router-dom';
 
 function Routes(props) {
     return (
-        <Switch>
-            <Route path="/" exact render={() => 
-                    props.isLoggedIn ?
-                    <Redirect to='/dashboard'/>
-                    :
-                    <Landing {...props}/>
+            <Switch>
+                <Route path="/" exact render={() => 
+                        props.isLoggedIn ?
+                        <Redirect to='/dashboard'/>
+                        :
+                        <Landing {...props}/>
 
-                } 
-            set/>
-            <PrivateRoute path="/dashboard" component={Dashboard} {...props}/>
-            <Route path="/tracking" component={Tracking}/>
-            <PrivateRoute path="/edit" component={EditProfile} {...props}/>
-            <PrivateRoute path="/address" component={AddressPage} {...props}/>
-            <PrivateRoute path='/booking' component={BookDelivery} {...props}/>
-            <PrivateRoute path='/waybills' component={WaybillPage} {...props}/>
-            <PrivateRoute path='/transactions' component={TransactionPage} {...props}/>
+                    } 
+                set/>
+                <PrivateRoute path="/dashboard" component={Dashboard} {...props}/>
+                <Route path="/tracking/:trackingId" component={Tracking}/>
+                <Route path="/tracking" component={Tracking}/>
+                <PrivateRoute path="/edit" component={EditProfile} {...props}/>
+                <PrivateRoute path="/address" component={AddressPage} {...props}/>
+                <PrivateRoute path='/booking' component={BookDelivery} {...props}/>
+                <PrivateRoute path='/waybills' component={WaybillPage} {...props}/>
+                <PrivateRoute path='/transactions' component={TransactionPage} {...props}/>
 
-        </Switch>
+            </Switch>
     )
 };
 

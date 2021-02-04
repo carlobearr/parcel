@@ -33,7 +33,7 @@ const App = () => {
             } 
             <Content style = {{ background: "#FFFFFF", height: "100%" }}>
                 {isLoggedIn === false ?
-                    <Spin className="spin"/>
+                    <Spin className="spin extra-margin"/>
                     :
                     <Routes isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} redirect={redirect} setRedirect={setRedirect}></Routes>
                 }

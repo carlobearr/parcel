@@ -1,22 +1,40 @@
-import React, {useState} from 'react';
-import { Row, Col, Timeline, Button, Form, Input } from 'antd';
+import React, {useState, useEffect} from 'react';
+import {withRouter} from 'react-router-dom';
+import { Row, Col, Timeline, Button, Form, Input, Spin } from 'antd';
 import './trackingPage.css';
 import {getTracker} from '../api/trackerHandler';
 
-function Tracking() {
+function Tracking(props) {
 
-    const [tracking, setTracking] = useState(null);
+    const [tracking, setTracking] = useState(false);
     const [form] = Form.useForm();
+
     const submitTracking = (tracker) => {
         async function get() {
             const result = await getTracker(tracker);
-            if(result) {
+            if(result) {                
                 setTracking(result);
+                props.history.push('/tracking/' + result.trackingNumber);
             }
         }
 
         get();
     }
+
+    useEffect(() => {
+        async function initializeTracking() {
+            if(tracking === false) {
+                if(props.match.params.trackingId) {
+                    setTracking(await getTracker({trackingNumber: props.match.params.trackingId}));
+                }
+                else {
+                    setTracking(null);
+                }
+            }
+        
+        }
+        initializeTracking()
+    }, [tracking, props.match.params.trackingId]);
 
     const generateTimeline = () => {
         var timeline = [];
@@ -61,6 +79,7 @@ function Tracking() {
 
     const resetTracking = () => {
         setTracking(null);
+        props.history.push('/tracking');
         form.resetFields(['trackingNumber']);
     }
     return ( 
@@ -75,23 +94,26 @@ function Tracking() {
                             <div></div>
                         }
                     </div>
-                    {tracking !== null ?
-                        <Timeline mode="right">
-                            {generateTimeline()}
-                        </Timeline>
+                    {tracking === false ?
+                        <Spin className="spin"></Spin>
                         :
-                        <Form className="tracking-form" onFinish={submitTracking} form={form}>
-                            <Row gutter={[10, 15]}>
-                                <Col span={16}>
-                                    <Form.Item rules={[{pattern: /TRCK-\d\d\d-\d\d\d/, message: 'Invalid tracking number.'}]} name="trackingNumber"><Input placeholder="Tracking Number"></Input></Form.Item>
-                                </Col>
-                                <Col span={2}>
-                                    <Form.Item>
-                                        <Button className="tracking-submit" htmlType="submit"> Track Delivery</Button>
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-                        </Form>
+                        tracking === null ?
+                            <Form className="tracking-form" onFinish={submitTracking} form={form}>
+                                <Row gutter={[10, 15]}>
+                                    <Col span={16}>
+                                        <Form.Item rules={[{pattern: /TRCK-\d\d\d-\d\d\d/, message: 'Invalid tracking number.'}]} name="trackingNumber"><Input placeholder="Tracking Number"></Input></Form.Item>
+                                    </Col>
+                                    <Col span={2}>
+                                        <Form.Item>
+                                            <Button className="tracking-submit" htmlType="submit"> Track Delivery</Button>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+                            </Form>
+                            :
+                            <Timeline mode="right">
+                                {generateTimeline()}
+                            </Timeline>
                     }
                 </Col>
                 <Col span={12} className="tracking-side">
@@ -101,4 +123,4 @@ function Tracking() {
     );
 };
 
-export default Tracking;
+export default withRouter(Tracking);
