@@ -1,0 +1,27 @@
+.statusContainer {
+    border-width: 2px;
+    border-style: solid;
+    width: 200px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pending {
+    border-color: #CCCC00;
+    color: #CCCC00 !important;
+}
+
+.in-progress {
+    border-color: #00C8FF;
+    color: #00C8FF !important;
+}
+
+.finished {
+    border-color: #00994c;
+    color: #00994c !important;
+}
+
+.error {
+    border-color: #8b0000;
+    color: #8b0000 !important;
+}

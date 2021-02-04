@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.post('/create', deliveryController.createDelivery);
 
+router.get('/getList', deliveryController.getDeliveryList);
+
 module.exports = router;

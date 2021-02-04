@@ -37,13 +37,6 @@
     float: right;
 }
 
-.statusContainer {
-    border-color: #00C8FF;
-    border-width: 2px;
-    border-style: solid;
-    width: 200px;
-}
-
 .editAddress {
     font-size: 18px;
     color: #00C8FF;
