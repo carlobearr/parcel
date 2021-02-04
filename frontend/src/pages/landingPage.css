@@ -1,17 +1,21 @@
 .wrapperWholePage {
     position: relative;
+    scroll-behavior: smooth;
 }
 
 .wrapper {
     position: relative;
     height: calc(100vh - 66px) !important;
     background-color: white;
+    margin-top: 66px;
+    margin-bottom: -66px;
 }
 
 .wrapper4 {
     position: relative;
     height: calc(100vh - 220px) !important;
     background-color: white;
+    margin-top: 12%;
 }
 
 .maxHeight {

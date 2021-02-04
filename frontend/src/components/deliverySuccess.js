@@ -1,8 +1,26 @@
 import React from 'react';
 import { Button, Modal, Form, Row, Spin} from 'antd';
 import './deliverySuccess.css';
+import { Link } from 'react-router-dom';
 
 function DeliverySuccess(props) {
+
+    function copyTrackNumber() {
+        var el = document.createElement('textarea');
+        // Set value (string to be copied)
+        el.value = props.trackingNum;
+        // Set non-editable to avoid focus and move outside of view
+        el.setAttribute('readonly', '');
+        el.style = {position: 'absolute', left: '-9999px'};
+        document.body.appendChild(el);
+        // Select text inside element
+        el.select();
+        // Copy text to clipboard
+        document.execCommand('copy');
+        // Remove temporary element
+        document.body.removeChild(el);
+    }
+
     const handleCancel = () => {
         props.setIsModalVisible(false);
     };
@@ -38,7 +56,7 @@ function DeliverySuccess(props) {
                                 Please wait for the confirmation message.
                             </Row>
                             <Row justify="center">
-                                <Button className="trackButton">
+                                <Button className="trackButton" onClick={copyTrackNumber}>
                                     COPY TRACKING NUMBER
                                 </Button>
                             </Row>
@@ -48,9 +66,9 @@ function DeliverySuccess(props) {
                                 </Button>
                             </Row>
                             <Row justify="center">
-                                <Button className="backHomeButton">
-                                GO BACK HOME
-                                </Button>
+                                <Link to="/dashboard" className="backHomeButton">
+                                    <center>GO BACK HOME</center>
+                                </Link>
                             </Row>
                         </div>
                     }
