@@ -20,3 +20,16 @@ export const createDelivery = async(deliveryDetails) => {
 
     return responseBody;
 }
+
+export const getDeliveries = async() => {
+    const response = await fetch('/delivery/getList', {
+        headers: {
+            'Content-Type': 'application/jkson'
+        },
+        credentials: 'include'
+    });
+
+    const result = await response.json();
+
+    return result;
+}
