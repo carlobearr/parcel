@@ -64,7 +64,7 @@ function Tracking() {
         form.resetFields(['trackingNumber']);
     }
     return ( 
-        <div> 
+        <div className="wrapper"> 
             <Row> 
                 <Col span={12}>
                     <div className="tracking-header">                        

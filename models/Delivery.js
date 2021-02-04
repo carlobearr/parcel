@@ -10,7 +10,8 @@ const deliverySchema = new mongoose.Schema({
     cod: { type: Boolean, required: true },
     itemName: { type: String, required: true },
     itemPhoto: { type: String },
-    itemPrice: { type: Number }
+    itemPrice: { type: Number },
+    deliveryFee: { type: Number, required: true }
 });
 
 module.exports = mongoose.model('Delivery', deliverySchema);

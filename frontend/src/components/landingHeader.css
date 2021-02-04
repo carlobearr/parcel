@@ -1,8 +1,9 @@
 html { scroll-behavior: smooth; }
 
 .header {
-    position: sticky;
+    position: fixed;
     z-index: 5;
+    width: 100%;
     top: 0;
     padding: 0 !important;
     background-color: #FFFFFF;

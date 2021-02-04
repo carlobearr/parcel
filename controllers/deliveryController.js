@@ -54,7 +54,8 @@ async function databasify(deliveryDetails, userId) {
     deliveryDetails['trackingNumber'] = 'TRCK-' + track1 + '-' + track2();
 
     //create tracker
-    const initialTrack = { title: 'Delivery Accepted', date: date.toString() };
+    const currDate = new Date();
+    const initialTrack = { title: 'Delivery Pending', date: currDate.toString() };
     const tracker = new trackerModel({ trackingNumber: deliveryDetails.trackingNumber, status: [JSON.stringify(initialTrack)] });
     tracker.save();
 
@@ -82,4 +83,14 @@ exports.createDelivery = async(req, res) => {
         }
     }
 
+}
+
+exports.getDeliveryList = async({ session }, res) => {
+    const list = await deliveryModel.find({ userId: session.user.gId }).populate(['recipientAddress', 'senderAddress']);
+
+    if (list.length > 0) {
+        res.json(list);
+    } else {
+        res.json(null);
+    }
 }
