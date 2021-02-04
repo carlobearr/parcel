@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Row, Col, Form, Layout } from 'antd';
+import { Row, Col, Form } from 'antd';
 import './bookDeliveryPage.css';
 import BookDeliveryAddress from '../components/bookDeliveryAddress';
 import BookDeliveryItemDetails from '../components/bookDeliveryItemDetails'
@@ -9,7 +9,6 @@ import DeliverySuccess from '../components/deliverySuccess';
 import { createDelivery } from '../api/deliveryHandler';
 import Weather from '../components/weather';
 
-const { Header,Content } = Layout;
 
 function BookDelivery() {
     const [form] = Form.useForm();
@@ -27,6 +26,8 @@ function BookDelivery() {
     }
 
     const submitDelivery = (formValues) => {
+        formValues['deliveryFee'] = totalPrice;
+
         async function bookDelivery() {
             setIsModalVisible(true);
             const result = await createDelivery(formValues);
@@ -43,18 +44,16 @@ function BookDelivery() {
     
     return ( 
         <div className="wrapper">
-            <Layout>
-                <Header className="dashboardheader">
-                    <div class="title">Book a Delivery</div>
-                </Header>
+                <div className="dashboardheader">
+                    <div className="title">Book a Delivery</div>
+                </div>
                 
-                <Content className="opaque">
+                <div className="opaque">
                     <div className="dashboardcontainer">
                         <Weather></Weather>
                     </div>
-                </Content>
+                </div>
 
-  
             <div className="contentWrapper">
                 <Form layout="vertical" requiredMark={false} form={form} initialValues={{month: '1', day: '1', year: getYear()}} onFinish={submitDelivery}>
                     <Row className="detailContent" gutter = {[100,0]}>
@@ -70,8 +69,6 @@ function BookDelivery() {
                 </Form>
             </div>
             <DeliverySuccess trackingNum={trackingNum} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible}/>
-
-        </Layout>
         </div>
     );
 };
