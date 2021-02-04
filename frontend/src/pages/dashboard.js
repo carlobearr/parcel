@@ -30,9 +30,9 @@ function Dashboard({isLoggedIn}){
                 });
             }
             if(!deliveries) {
-                setTotal('Error');
-                setSuccess('Error');
-                setPending('Error');
+                setTotal(0);
+                setSuccess(0);
+                setPending(0);
             }
         }
 
