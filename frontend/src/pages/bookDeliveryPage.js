@@ -16,7 +16,7 @@ function BookDelivery() {
     const [sendColor, setsendColor] = useState('gray');
     const [recColor, setrecColor] = useState('gray');
     const [trackingNum, setTrackingNum] = useState(null);
-    const [distance, setDistance] = useState(50);
+    const [distance, ] = useState(50);
     const [value, setValue] = useState(0);
     const [totalPrice, setTotalPrice] = useState(distance);
     function getYear() {
