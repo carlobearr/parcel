@@ -11,7 +11,8 @@ import Tracking from './pages/trackingPage';
 import EditProfile from './pages/editProfile';
 import BookDelivery from './pages/bookDeliveryPage';
 import AddressPage from './pages/addressPage';
-import WaybillPage from './pages/waybillPage'
+import WaybillPage from './pages/waybillPage';
+import TransactionPage from './pages/transactionPage';
 import { Redirect } from 'react-router-dom';
 
 function Routes(props) {
@@ -31,6 +32,8 @@ function Routes(props) {
             <PrivateRoute path="/address" component={AddressPage} {...props}/>
             <PrivateRoute path='/booking' component={BookDelivery} {...props}/>
             <PrivateRoute path='/waybills' component={WaybillPage} {...props}/>
+            <PrivateRoute path='/transactions' component={TransactionPage} {...props}/>
+
         </Switch>
     )
 };
