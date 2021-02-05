@@ -39,7 +39,7 @@ function EditProfile(props) {
                             </Row>
                             <Row gutter={[0,15]}>
                                 <Col span={20}>
-                                    <Form.Item label="Email Address" rules={[{pattern: new RegExp("[a-zA-Z]+@[a-zA-Z]+.[a-zA-Z]+"), required: true, message: "Please enter a valid email address" }]} name="email" initialValue={props.isLoggedIn.email}><Input/></Form.Item>
+                                    <Form.Item label="Email Address" rules={[{pattern: new RegExp("[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+"), required: true, message: "Please enter a valid email address" }]} name="email" initialValue={props.isLoggedIn.email}><Input/></Form.Item>
                                 </Col>
                             </Row>
                             <Row gutter={[0,15]}>
