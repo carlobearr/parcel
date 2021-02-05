@@ -12,7 +12,6 @@ const { Content } = Layout;
 const App = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [redirect, setRedirect] = useState(null); 
 
     useEffect(() => {
         async function updateLoggedIn() {
@@ -35,7 +34,7 @@ const App = () => {
                 {isLoggedIn === false ?
                     <Spin className="spin extra-margin"/>
                     :
-                    <Routes isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} redirect={redirect} setRedirect={setRedirect}></Routes>
+                    <Routes isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}></Routes>
                 }
             </Content>
             {isLoggedIn === null ?

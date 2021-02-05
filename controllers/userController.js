@@ -19,7 +19,7 @@ exports.loginUser = async(req, res) => {
             const newUser = new userModel(user);
             req.session.user = newUser;
             await newUser.save();
-            res.json({ user: newUser, redir: 'edit' });
+            res.json({ user: newUser, redir: '/edit' });
         }
     } else {
         res.json({ error: 'login failed.' });
