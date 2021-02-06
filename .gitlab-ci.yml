@@ -16,8 +16,6 @@ build_job:
 
 test_job:
   stage: test
-  tags:
-    - node
   script:
     - npm install
     - npm run tests
