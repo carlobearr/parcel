@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { setSignIn } from '../api/sessionHandler';
-import { Redirect,  withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './googleSignInButton.css';
 
