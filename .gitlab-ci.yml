@@ -1,5 +1,5 @@
 stages:
-  # - build
+  - build
   - test
   # - deploy
 
@@ -17,7 +17,6 @@ build_job:
 test_job:
   stage: test
   script:
-    - npm install
     - npm run tests
     - echo test_passed!
 
