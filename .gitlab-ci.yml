@@ -14,14 +14,14 @@ build_job:
     - npm run build
     - echo build_passed!
 
-# test_job:
-#   stage: test
-#   tags:
-#     - node
-#   script:
-#     - npm install
-#     - npm run test
-#     - echo test_passed!
+test_job:
+  stage: test
+  tags:
+    - node
+  script:
+    - npm install
+    - npm run test
+    - echo test_passed!
 
 deploy:
   type: deploy
