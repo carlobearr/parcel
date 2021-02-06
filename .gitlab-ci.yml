@@ -19,6 +19,7 @@ test_job:
   tags:
     - node
   script:
+    - npm install
     - npm run tests
     - echo test_passed!
 
