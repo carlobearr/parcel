@@ -1,3 +1,4 @@
+const { disconnect } = require('mongoose');
 const addressController = require('../controllers/addressController');
 const mockRequest = require('./mockRequest');
 const mockResponse = require('./mockResponse');
@@ -64,4 +65,8 @@ describe('Address Controller Functions', () => {
         await addressController.deleteAddress(mockRequest({ gId: 'jestID' }, {}, { addressName: 'Edited Jest Test' }), response);
         expect(response.json).toHaveBeenCalledWith({ message: "deleted" });
     });
+});
+
+afterAll(() => {
+    disconnect();
 });
