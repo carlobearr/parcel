@@ -1,21 +1,23 @@
 stages:
-  - build
+  # - build
   - test
   # - deploy
 
-build_job:
-  stage: build
-  tags:
-    - node
-  script:
-    - npm install
-    - cd frontend
-    - npm install
-    - npm run build
-    - echo build_passed!
+# build_job:
+#   stage: build
+#   tags:
+#     - node
+#   script:
+#     - npm install
+#     - cd frontend
+#     - npm install
+#     - npm run build
+#     - echo build_passed!
 
 test_job:
   stage: test
+  tags:
+    - node
   script:
     - npm run tests
     - echo test_passed!
