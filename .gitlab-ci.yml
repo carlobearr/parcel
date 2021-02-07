@@ -1,18 +1,18 @@
 stages:
-  # - build
+  - build
   - test
-  # - deploy
+  - deploy
 
-# build_job:
-#   stage: build
-#   tags:
-#     - node
-#   script:
-#     - npm install
-#     - cd frontend
-#     - npm install
-#     - npm run build
-#     - echo build_passed!
+build_job:
+  stage: build
+  tags:
+    - node
+  script:
+    - npm install
+    - cd frontend
+    - npm install
+    - npm run build
+    - echo build_passed!
 
 test_job:
   stage: test
@@ -23,16 +23,16 @@ test_job:
     - npm run tests
     - echo test_passed!
 
-# deploy:
-#   type: deploy
-#   stage: deploy
-#   image: ruby:latest
-#   script:
-#   - apt-get update -qy
-#   - apt-get install -y ruby-dev
-#   - gem install dpl
-#   - dpl --provider=heroku --app=pelican-express-development --api-key=$HEROKU_API_KEY
-#   - echo "Deployed to production server"
+deploy:
+  type: deploy
+  stage: deploy
+  image: ruby:latest
+  script:
+  - apt-get update -qy
+  - apt-get install -y ruby-dev
+  - gem install dpl
+  - dpl --provider=heroku --app=pelican-express-development --api-key=$HEROKU_API_KEY
+  - echo "Deployed to production server"
 
-#   only:
-#   - development
+  only:
+  - development

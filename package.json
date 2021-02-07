@@ -7,7 +7,7 @@
         "start": "node app.js",
         "dev": "nodemon app.js",
         "servers": "concurrently \"npm run start\" \"cd frontend && npm run start\"",
-        "tests": "jest --detectOpenHandles",
+        "tests": "jest",
         "heroku-postbuild": "npm install && cd frontend && npm install && npm run build"
     },
     "repository": {
