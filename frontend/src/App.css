@@ -22,3 +22,7 @@
 .extra-margin {
     margin-top: 100px;
 }
+
+.ant-image-img {
+    display: inline !important;
+}
