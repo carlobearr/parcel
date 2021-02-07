@@ -27,8 +27,8 @@ function Landing(props) {
                         </div>
                     </Col>
                     <Col className="maxHeight"span={14}>
-                        <div className="picturePadding">
-                        <Image preview={false} className="landingPicture" src={process.env.PUBLIC_URL+ '/PE-Landing.png'}/>
+                        <div className="picturePadding landingPicture">
+                            <Image preview={false} src={process.env.PUBLIC_URL+ '/PE-Landing.png'}/>
                         </div>
                     </Col>
                     <Col className="bottomCenter1" span={24}>
